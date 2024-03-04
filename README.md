@@ -6,7 +6,7 @@ En este Proyecto a realizar vas a evidenciar los conceptos adquiridos en todo es
 
 # 🎯 Objetivo del DemoDay:
 
-Adquirir los conocimientos esenciales para realizar aplicaciones web dinámicas haciendo uso de JavaScript Vanilla. 
+Adquirir los conocimientos esenc iales para realizar aplicaciones web dinámicas haciendo uso de JavaScript Vanilla. 
 
 Con el Demo Day se pretende que los beneficiarios demuestren todos sus conocimientos adquiridos a empresas Nacionales e Internacionales, con esto pueden vivir la experiencia de exponer un proyecto y una idea de negocio al mundo.
 
