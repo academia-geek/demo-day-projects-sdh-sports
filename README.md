@@ -32,7 +32,7 @@ _Esta aplicacion comienza con_ el analisis realizado sobre el entorno actual, en
     >- Algunas proteinas o suplementos que podrian ser
         favorables para tu cambio fisico! 💊9
 
-### Resumen de la aplicacion ℹ️
+## Resumen de la aplicacion ℹ️
 
 
 **_SDH Sports_**  es una aplicacion web que tiene como incentivo e objetivo el motivar a las personas a preocuparse y hacerse mas preguntas respecto a que tal esta su condicion fisica actualmente, por medio de esto, hacer que las personas realicen una autoevaluacion y comiencen a motivarse a darse un gran cambio en su vida, a dejar atras todos esos malos habitos a los que el ser humano se acostumbro gracias a la tecnologia que existe hoy en dia, pues es posible convivir con esta pero de una manera mas saludable. 🫂
