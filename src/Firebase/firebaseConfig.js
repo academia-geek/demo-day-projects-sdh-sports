@@ -5,14 +5,13 @@ import { getFirestore } from "firebase/firestore"
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD9Gf4K7Ps_7--DbxoHhAKQ_0-ClOxR0yY",
-  authDomain: "social-app-9ae74.firebaseapp.com",
-  projectId: "social-app-9ae74",
-  storageBucket: "social-app-9ae74.appspot.com",
-  messagingSenderId: "364631065282",
-  appId: "1:364631065282:web:477474e109e7891b31b15b"
+  apiKey: "AIzaSyAa6UHVh_A7C-LN2Q4heHXnnx0t20oehEQ",
+  authDomain: "sdh-sports.firebaseapp.com",
+  projectId: "sdh-sports",
+  storageBucket: "sdh-sports.appspot.com",
+  messagingSenderId: "338136825664",
+  appId: "1:338136825664:web:5d164477dca247fe5584a5"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
