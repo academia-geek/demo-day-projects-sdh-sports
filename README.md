@@ -39,7 +39,7 @@ _Esta aplicacion comienza con_ el analisis realizado sobre el entorno actual, en
 
 _Queremos que las personas del mundo actual y futuro comiencen a preocuparse mas por el estado de su cuerpo, que hagan mas ejercicio, que puedan notar y realizar cambios en su vida, por mas minimo que sea el tiempo, que aun asi hagan el esfuerzo y comiencen a iniciar nuestra gran aplicacion, que los ayudara a generar sus nuevos habitos saludables_ 🩺
 
-## 🛠️ Tech Stack
+## Aplicaciones utilizadas
 
 [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/>](https://www.w3.org/html/)
 [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
