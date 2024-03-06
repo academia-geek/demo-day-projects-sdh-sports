@@ -12,7 +12,7 @@ export const CustomNav = styled.nav`
   color: white;
 
   a:hover {
-    color: #1ad3d9;
+    color: #0000ff;
     font-size: 28px;
   }
 `;
@@ -21,11 +21,11 @@ export const NavLink = styled.a`
   margin-right: 40px;
   text-decoration: none;
   cursor: pointer;
-  color: ${(props) => (props.active ? "#1AD3D9" : "inherit")};
+  color: ${(props) => (props.active ? "#0000ff" : "inherit")};
 `;
 
 const StyledButton = styled.button`
-  background-color: yellow;
+  background-color: #FFFF5F;
   color: black;
   font-weight: bold;
   padding: 10px 100px;
@@ -34,13 +34,13 @@ const StyledButton = styled.button`
   box-shadow: 0 10px 25px 1px rgba(255, 255, 0, 0.5);
   text-align: center;
   white-space: nowrap;
-  font-family: "Kanit", sans-serif;
+  font-family: "Archivo Black", sans-serif;
   font-size: 22px;
   margin-top: -10px;
 
   &:hover {
-    padding: 15px 120px;
-    margin-right: 60px;
+    padding: 15px 100px;
+    margin-right: 80px;
   }
 `;
 
@@ -49,6 +49,8 @@ const StyledBrand = styled(Navbar.Brand)`
   font-family: "Kanit", sans-serif;
   font-weight: bold;
   font-size: 34px;
+  cursor:pointer;
+  margin-left: 40px;
   &:hover {
     color: #1ad3d9;
   }
@@ -65,7 +67,7 @@ const Header = () => {
       <Navbar>
         <Navbar.Brand>
           <img
-            src="https://res.cloudinary.com/madrigalsito/image/upload/v1709505819/SDH/OIG4_talawc.jpg"
+            src="https://res.cloudinary.com/madrigalsito/image/upload/v1709690342/SDH/OIG3_sqwexw.png"
             width="110"
             height="110"
             style={{
@@ -80,20 +82,19 @@ const Header = () => {
             <NavLink
               active={activeLink === "home"}
               onClick={() => handleLinkClick("home")}
-              href="/"
             >Home
             </NavLink>
             <NavLink
-              active={activeLink === "features"}
-              onClick={() => handleLinkClick("features")}
+              active={activeLink === "About"}
+              onClick={() => handleLinkClick("About")}
             >
-              Features
+              About
             </NavLink>
             <NavLink
-              active={activeLink === "pricing"}
-              onClick={() => handleLinkClick("pricing")}
+              active={activeLink === "Login"}
+              onClick={() => handleLinkClick("Login")}
             >
-              Pricing
+              Login
             </NavLink>
           </CustomNav>
         </Container>
