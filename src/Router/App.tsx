@@ -8,6 +8,7 @@ import RegisterFormik from "../Components/Register";
 import PublicRouter from "./PublicRouter";
 import DashboardRouter from "./DashboardRouter";
 import PrivateRouter from "./PrivateRouter";
+import Imc from "../Components/Imc";
 
 const App = () => {
 
@@ -59,6 +60,7 @@ const App = () => {
           element={
             <PrivateRouter isAutentication={user}>
               <DashboardRouter />
+              <Imc/>
             </PrivateRouter>
           }
         />
