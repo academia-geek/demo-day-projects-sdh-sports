@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import { addDoc, collection } from 'firebase/firestore';
 import { dataBase } from '../../Firebase/firebaseConfig';
 
-export const calcularIMC = (altura: string, peso: string) => {
+export const actionCalcularimcAsync = (altura: string, peso: string) => {
   return async (dispatch: any) => {
     const alturaFloat = parseFloat(altura);
     const pesoFloat = parseFloat(peso);

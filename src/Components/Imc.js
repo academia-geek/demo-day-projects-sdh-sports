@@ -1,9 +1,22 @@
 import React, { useState } from 'react';
-import { calcularIMC } from '../Redux/actions/imcActions';
+import { actionCalcularimcAsync } from '../Redux/actions/imcActions';
+import { useDispatch } from 'react-redux';
+import useForm from '../Hooks/useForm';
 
 const Imc = ({ resultadoIMC, calcularIMC }) => {
-  const [altura, setAltura] = useState('');
-  const [peso, setPeso] = useState('');
+  const dispatch = useDispatch();
+  const [formValue, handleInputChange, reset] = useForm({
+    altura: "",
+    peso: "",
+  });
+
+  const { altura, peso } = formValue;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(actionCalcularimcAsync(altura, peso));
+    reset();
+  };
 
   const handleCalcularIMC = () => {
     calcularIMC(altura, peso);
@@ -14,11 +27,11 @@ const Imc = ({ resultadoIMC, calcularIMC }) => {
       <h1>Calculadora de Índice de Masa Corporal (IMC)</h1>
       <div>
         <label htmlFor="altura">Altura (en cm):</label>
-        <input type="number" step="0.01" id="altura" value={altura} onChange={(e) => setAltura(e.target.value)} />
+        <input type="number" step="0.01" id="altura" value={altura} onChange={handleInputChange} />
       </div>
       <div>
         <label htmlFor="peso">Peso (en kg):</label>
-        <input type="number" step="0.01" id="peso" value={peso} onChange={(e) => setPeso(e.target.value)} />
+        <input type="number" step="0.01" id="peso" value={peso} onChange={handleInputChange}/>
       </div>
       <button onClick={handleCalcularIMC}>Calcular IMC</button>
       <div>{resultadoIMC}</div>
