@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 const Container = styled.div``;
@@ -197,6 +198,7 @@ const FitnessAppIntroduction = () => {
         </Text>
         <div>
           <GrayBox>
+            <Link to='/register'>
             <div
               style={{
                 display: "flex",
@@ -209,6 +211,7 @@ const FitnessAppIntroduction = () => {
                 alt="Descripción de la imagen"
               />
             </div>
+            </Link>
             <div
               style={{
                 display: "flex",
@@ -220,6 +223,7 @@ const FitnessAppIntroduction = () => {
           </GrayBox>
           {/*  */}
           <GrayBox>
+          <Link to='/register'>
             <div
               style={{
                 display: "flex",
@@ -232,6 +236,7 @@ const FitnessAppIntroduction = () => {
                 alt="Descripción de la imagen"
               />
             </div>
+            </Link>
 
             <div
               style={{
@@ -244,6 +249,7 @@ const FitnessAppIntroduction = () => {
           </GrayBox>
           {/*  */}
           <GrayBox>
+          <Link to='/register'>
             <div
               style={{
                 display: "flex",
@@ -256,6 +262,7 @@ const FitnessAppIntroduction = () => {
                 alt="Descripción de la imagen"
               />
             </div>
+            </Link>
             <div
               style={{
                 display: "flex",
@@ -274,7 +281,9 @@ const FitnessAppIntroduction = () => {
         />
         <Overlay>
           <Texto>COMIENZA A VIVIR TU EXPERIENCIA</Texto>
+          <Link to='/register'>
           <Boton>Free Trial</Boton>
+          </Link>
         </Overlay>
       </ImageContainer>
     </div>

@@ -10,7 +10,7 @@ import DashboardRouter from "./DashboardRouter";
 import PrivateRouter from "./PrivateRouter";
 
 const App = () => {
-  
+
   const [user, setuser] = useState(false);
 
   useEffect(() => {
@@ -27,11 +27,20 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-      
+        <Route
+          path="/"
+          element={
+            <PublicRouter isAutentication={user}>
+              <Header />
+              <Index />
+            </PublicRouter>
+          }
+        />
         <Route
           path="/login"
           element={
             <PublicRouter isAutentication={user}>
+              <Header />
               <Login />
             </PublicRouter>
           }
@@ -40,6 +49,7 @@ const App = () => {
           path="/register"
           element={
             <PublicRouter isAutentication={user}>
+              <Header />
               <RegisterFormik />
             </PublicRouter>
           }

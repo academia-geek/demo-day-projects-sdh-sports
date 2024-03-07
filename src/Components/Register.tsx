@@ -1,10 +1,11 @@
 import React from "react";
-import { Button, FormLabel } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Field, Form, Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { actionRegisterAsync } from "../Redux/actions/actionsRegister";
+import styled from "styled-components";
 
 interface FormValues {
   firstName: string;
@@ -13,7 +14,72 @@ interface FormValues {
   pass: string;
   pass2: string;
 }
+const RegisterContainer = styled.div`
+  display: flex;
+  height: 100vh;
+  background-image: url('https://res.cloudinary.com/madrigalsito/image/upload/v1709771520/SDH/png_xrj4te.png');
+  background-size: cover;
+  background-position: center;
+  font-family: "Dosis", sans-serif;
+  font-size: 20px;
+  
+`;
 
+const RegisterBox = styled.div`
+flex: 1;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const RegisterForm = styled(Form)`
+  width: 100%;
+  max-width: 400px;
+`;
+
+const FormInput = styled(Field)`
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+const ErrorMessage = styled.div`
+  color: red;
+  margin-bottom: 8px;
+`;
+
+const SubmitButton = styled.button`
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+
+`;
+
+const LoginLink = styled.div`
+text-align: center;
+margin-top: 16px;
+font-weight: bold;
+font-size: 25px;
+color: #ffd700;
+`;
+
+const StyledLink = styled(Link)`
+  &:hover {
+    color: #ffd700;
+  }
+`;
 const RegisterFormik = () => {
   const SignupSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -26,7 +92,7 @@ const RegisterFormik = () => {
       .required("Este campo es requerido"),
     email: Yup.string().email("Invalid email").required("Required"),
     pass: Yup.string()
-      .min(6, "pass muy corto")
+      .min(8, "pass muy corto")
       .max(10, "Excede el máximo")
       .oneOf([Yup.ref("pass2"), "Los password No coinciden"])
       .required("Required"),
@@ -51,54 +117,73 @@ const RegisterFormik = () => {
     ))}
 
   return (
-    <div style={{
-      margin: '0 400px'
-    }}>
-    <Formik
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        email: "",
-        pass: "",
-        pass2: "",
-      }}
-      validationSchema={SignupSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ errors, touched }) => (
-       <Form style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-       <FormLabel style={{ fontSize: '18px', fontWeight: 'bold' }}>Nombre</FormLabel>
-       <Field name="firstName" style={{ padding: '5px' }} />
-       {errors.firstName && touched.firstName ? (
-         <div style={{ color: 'red', fontSize: '14px' }}>{errors.firstName}</div>
-       ) : null}
+    <RegisterContainer>
+      <RegisterBox>
+        <Formik
+          initialValues={{
+            firstName: '',
+            lastName: '',
+            email: '',
+            pass: '',
+            pass2: '',
+          }}
+          validationSchema={SignupSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ errors, touched }) => (
+            <RegisterForm>
+              <FormInput
+                name="firstName"
+                placeholder="First Name"
+              />
+              {errors.firstName && touched.firstName && (
+                <ErrorMessage>{errors.firstName}</ErrorMessage>
+              )}
 
-       <FormLabel style={{ fontSize: '18px', fontWeight: 'bold' }}>Apellido</FormLabel>
-       <Field name="lastName" style={{ padding: '5px' }} />
-       {errors.lastName && touched.lastName ? (
-         <div style={{ color: 'red', fontSize: '14px' }}>{errors.lastName}</div>
-       ) : null}
+              <FormInput
+                name="lastName"
+                placeholder="Last Name"
+              />
+              {errors.lastName && touched.lastName && (
+                <ErrorMessage>{errors.lastName}</ErrorMessage>
+              )}
 
-       <FormLabel style={{ fontSize: '18px', fontWeight: 'bold' }}>Email</FormLabel>
-       <Field name="email" type="email" style={{ padding: '5px' }} />
-       {errors.email && touched.email ? <div style={{ color: 'red', fontSize: '14px' }}>{errors.email}</div> : null}
+              <FormInput
+                name="email"
+                type="email"
+                placeholder="Email"
+              />
+              {errors.email && touched.email && (
+                <ErrorMessage>{errors.email}</ErrorMessage>
+              )}
 
-       <FormLabel style={{ fontSize: '18px', fontWeight: 'bold' }}>Contraseña</FormLabel>
-       <Field name="pass" type="password" style={{ padding: '5px' }} />
-       {errors.pass && touched.pass ? <div style={{ color: 'red', fontSize: '14px' }}>{errors.pass}</div> : null}
+              <FormInput
+                name="pass"
+                type="password"
+                placeholder="Password"
+              />
+              {errors.pass && touched.pass && (
+                <ErrorMessage>{errors.pass}</ErrorMessage>
+              )}
 
-       <FormLabel style={{ fontSize: '18px', fontWeight: 'bold' }}>Confirmar Contraseña</FormLabel>
-       <Field name="pass2" type="password" style={{ padding: '5px' }} />
-       {errors.pass2 && touched.pass2 ? <div style={{ color: 'red', fontSize: '14px' }}>{errors.pass2}</div> : null}
+              <FormInput
+                name="pass2"
+                type="password"
+                placeholder="Confirm Password"
+              />
+              {errors.pass2 && touched.pass2 && (
+                <ErrorMessage>{errors.pass2}</ErrorMessage>
+              )}
 
-       <button type="submit" style={{ padding: '10px', background: 'blue', color: 'white', borderRadius: '5px', cursor: 'pointer' }}>Enviar</button>
-          <Button variant="outline-success" style={{ margin: "10px" }}>
-        <Link to="/login">Login</Link>
-      </Button>
-        </Form>
-      )}
-    </Formik>
-  </div>
+              <SubmitButton type="submit">Enviar</SubmitButton>
+              <LoginLink>
+                <StyledLink to="/login">Login</StyledLink>
+              </LoginLink>
+            </RegisterForm>
+          )}
+        </Formik>
+      </RegisterBox>
+    </RegisterContainer>
   );
 };
 
