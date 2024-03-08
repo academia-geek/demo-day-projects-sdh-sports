@@ -11,4 +11,9 @@ export const typesLogin = {
     list: "[products] list",
     search: "[products] search",
   };
+  export const typesImc = {
+    add: "[imc] add",
+    list: "[imc] list",
+
+  };
   

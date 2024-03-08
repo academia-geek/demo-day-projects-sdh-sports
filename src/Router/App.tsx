@@ -60,7 +60,7 @@ const App = () => {
           element={
             <PrivateRouter isAutentication={user}>
               <DashboardRouter />
-              <Imc/>
+              
             </PrivateRouter>
           }
         />

@@ -3,7 +3,7 @@ import loginReducer from "../reducers/loginReducer";
 import productsReducers from "../reducers/productsReducers";
 import { thunk } from "redux-thunk";
 import perfilReducer from "../reducers/perfilReducer";
-import amigosReducer from "../reducers/amigosReducer";
+import imcReducer from "../reducers/imcReducer";
 
 
 // Configuracion de los middleware para manejar acciones asíncronas con Redux-Thunk
@@ -20,7 +20,7 @@ const reducers = combineReducers({
   loginStore: loginReducer,
   productsStore: productsReducers,
   perfilStore: perfilReducer,
-  amigosStore: amigosReducer
+  imcStore: imcReducer,
 });
 
 export const store = createStore(
