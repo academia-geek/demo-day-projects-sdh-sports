@@ -1,19 +1,32 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Imc from "../Components/Imc";
+import Imc from "../Pages/Imc";
 import Gordo from "../Components/Gordo";
 import Estable from "../Components/Estable";
 import Desnutrido from "../Components/Desnutrido";
+import HeaderLogin from "../Components/HeaderLogin";
+import AddEjercicio from "../Components/AddEjercicios";
+import Rutinas from "../Pages/Rutinas";
+import Home from "../Pages/Home";
+import EditEjercicio from "../Components/EditEjercicio";
+import SearchEje from "../Components/SearchEje";
 
 const DashboardRouter = () => {
   return (
     <>
+    <HeaderLogin />
       <Routes>
-        {/* <Route path="/*" element={<Home />} /> */}
-        <Route path = "/*" element = {<Imc/>}/>
+        <Route path="/*" element={<Home />} />
+        <Route path = "/imc" element = {<Imc/>}/>
         <Route path = "/gordo" element = {<Gordo/>}/>
         <Route path = "/estable" element = {<Estable/>}/>
         <Route path = "/flaco" element = {<Desnutrido/>}/>
+        <Route path = "/addEje" element = {<AddEjercicio/>}/>
+        <Route path = "/rutinas" element = {<Rutinas/>}/>
+        <Route path = "/editEje" element = {<EditEjercicio/>}/>
+        <Route path = "/searchEje" element = {<SearchEje/>}/>
+
+
 
       </Routes>
       </>
