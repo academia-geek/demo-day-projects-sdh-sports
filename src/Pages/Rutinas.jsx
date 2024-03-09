@@ -12,8 +12,16 @@ import {
   actionDeleteEjerciciosAsyn,
   actionListEjerciciosAsyn,
 } from "../Redux/actions/actionsEjercicios";
-import { Button, Card, CardGroup, ListGroup, Modal } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  CardGroup,
+  Carousel,
+  ListGroup,
+  Modal,
+} from "react-bootstrap";
 import EditEjercicio from "../Components/EditEjercicio";
+
 
 const Rutinas = () => {
   const dispatch = useDispatch();
@@ -63,35 +71,44 @@ const Rutinas = () => {
         <h2>
           <Link to="/flaco">Flaco</Link>
         </h2>
-        <CardGroup>
-          {ejerciciosFlaco.map((p) => (
-            <Card key={p.id}>
-              <Card.Img variant="" src={p.imagen} style={{
-                width: '400px',
-                height: '270px'
-              }} />
-
-              <Card.Body>
-                <Card.Title>{p.ejercicio}</Card.Title>
-                <Card.Text>{p.description}</Card.Text>
-              </Card.Body>
-
-              <ListGroup className="list-group-flush">
-                <ListGroup.Item>Series: {p.series}</ListGroup.Item>
-                <ListGroup.Item>Repeticiones: {p.repeticiones}</ListGroup.Item>
-              </ListGroup>
-
-              <Button
-                onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
-              >
-                X
-              </Button>
-              <Button variant="primary" onClick={() => handleShow(p)}>
-                Edit
-              </Button>
-            </Card>
+        <Carousel
+          controls={false} 
+          interval={3000}
+        >
+          {[...Array(Math.ceil(ejerciciosFlaco.length / 4))].map((_, index) => (
+            <Carousel.Item key={index}>
+              <CardGroup>
+                {ejerciciosFlaco.slice(index * 4, (index + 1) * 4).map((p) => (
+                  <Card key={p.id}>
+                    <Card.Img
+                      variant=""
+                      src={p.imagen}
+                      style={{ width: "400px", height: "270px" }}
+                    />
+                    <Card.Body>
+                      <Card.Title>{p.ejercicio}</Card.Title>
+                      <Card.Text>{p.description}</Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                      <ListGroup.Item>Series: {p.series}</ListGroup.Item>
+                      <ListGroup.Item>
+                        Repeticiones: {p.repeticiones}
+                      </ListGroup.Item>
+                    </ListGroup>
+                    <Button
+                      onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
+                    >
+                      X
+                    </Button>
+                    <Button variant="primary" onClick={() => handleShow(p)}>
+                      Edit
+                    </Button>
+                  </Card>
+                ))}
+              </CardGroup>
+            </Carousel.Item>
           ))}
-        </CardGroup>
+        </Carousel>
       </div>
 
       <div>
