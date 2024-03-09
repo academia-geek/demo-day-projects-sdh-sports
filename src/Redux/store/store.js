@@ -1,8 +1,7 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import loginReducer from "../reducers/loginReducer";
-import productsReducers from "../reducers/productsReducers";
+import ejerciciosReducer from "../reducers/ejerciciosReducer";
 import { thunk } from "redux-thunk";
-import perfilReducer from "../reducers/perfilReducer";
 import imcReducer from "../reducers/imcReducer";
 
 
@@ -18,8 +17,7 @@ const composeEnhancers =
 
 const reducers = combineReducers({
   loginStore: loginReducer,
-  productsStore: productsReducers,
-  perfilStore: perfilReducer,
+  ejerciciosStore: ejerciciosReducer,
   imcStore: imcReducer,
 });
 

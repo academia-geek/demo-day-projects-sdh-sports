@@ -29,14 +29,11 @@ const Imc = () => {
    
   }
   
-  
-  
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     const alturaMetros = formValue.alt / 100;
     const imc = formValue.pes / (alturaMetros * alturaMetros);
-    console.log(imc);
+   
 
     const obj = {
       id: Math.floor(Math.random() * 200),
@@ -112,6 +109,7 @@ const Imc = () => {
         </div>
 
         <button type="submit">Calcular IMC</button>
+        
       </Form>
 
     </div>

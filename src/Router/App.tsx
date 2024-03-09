@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import Index from "../Components/Index";
+import Index from "../Pages/Index";
 import Header from "../Components/Header";
-import Login from "../Components/Login";
-import RegisterFormik from "../Components/Register";
+import Login from "../Pages/Login";
+import RegisterFormik from "../Pages/Register";
 import PublicRouter from "./PublicRouter";
 import DashboardRouter from "./DashboardRouter";
 import PrivateRouter from "./PrivateRouter";
-import Imc from "../Components/Imc";
+import Imc from "../Pages/Imc";
 
 const App = () => {
 
@@ -60,7 +60,6 @@ const App = () => {
           element={
             <PrivateRouter isAutentication={user}>
               <DashboardRouter />
-              
             </PrivateRouter>
           }
         />

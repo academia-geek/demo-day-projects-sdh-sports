@@ -1,4 +1,4 @@
-export const saveDataLocal = (products) => {
-  console.log(products);
-  localStorage.setItem("saveproducts", JSON.stringify(products));
+export const saveDataLocal = (ejercicios) => {
+  console.log(ejercicios);
+  localStorage.setItem("saveejercicios", JSON.stringify(ejercicios));
 };

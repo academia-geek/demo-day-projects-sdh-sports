@@ -1,143 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
-
-const Container = styled.div``;
-
-const Title = styled.h1`
-  font-size: 50px;
-  margin-left: 60px;
-  color: #FFFF5F;
-  font-family: "Archivo Black", sans-serif;
-`;
-
-const Text = styled.p`
-  font-size: 24px;
-  margin-bottom: 20px;
-  line-height: 1.5;
-  margin-left: 60px;
-  margin-top: 70px;
-  margin-right: 180px;
-  color: white;
-  font-family: "Dosis", sans-serif;
-  font-optical-sizing: auto;
-`;
-
-const load = keyframes`
-  0% { width: 0; }
-  100% { width: 85%; }
-`;
-
-const ProgressBarContainer = styled.div`
-  background: rgba(255, 255, 255, 0.1);
-  justify-content: flex-start;
-  border-radius: 100px;
-  align-items: center;
-  position: relative;
-  padding: 0 5px;
-  display: flex;
-  height: 40px;
-  width: 500px;
-  margin-left: 80px;
-`;
-
-const ProgressBarValue = styled.div`
-  animation: ${load} 3s normal forwards;
-  box-shadow: 0 10px 40px -10px #fff;
-  border-radius: 100px;
-  background: #fff;
-  height: 30px;
-  width: 0;
-`;
-
-const ProgressText = styled.span`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  color: black;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-`;
-const GrayBox = styled.div`
-  background-color: gray;
-  margin-left: 40px;
-  padding: 20px;
-  border-radius: 10px 10px 0 0;
-  display: inline-block;
-  height: 250px;
-  border-bottom: none;
-  width: 270px;
-  
-`;
-
-const ImageBox = styled.img`
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
-  margin-top: 20px;
-`;
-
-const TextBox = styled.p`
-  font-size: 16px; /* Tamaño del texto */
-  color: #333; /* Color del texto */
-`;
-const ImageContainer = styled.div`
-  position: relative;
-  display: inline-block;
-`;
-
-const Image = styled.img`
-  display: block;
-  width: 600px;
-  height: 750px;
-  border: 4px #FFFF5F solid;
-  border-radius: 15px;
-`;
-
-const Overlay = styled.div`
-  position: absolute;
-  margin-top: -240px;
-  margin-left: -40px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Boton = styled.button`
-  border: none;
-  margin-bottom: 10px;
-  cursor: pointer;
-  background-color: #FFFF5F;
-  color: black;
-  font-weight: bold;
-  padding: 10px 100px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px 20px rgba(255, 255, 0, 0.5);
-  text-align: center;
-  white-space: nowrap;
-  font-family: "Kanit", sans-serif;
-  font-size: 22px;
-  margin-top: 30px;
-
-  &:hover {
-    padding: 15px 120px;
-  }
-`;
-
-const Texto = styled.p`
-  color: #ffffff;
-  font-size: 28px;
-  font-family: "Dosis", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: bold;
-  
-`;
-
+import { Title, Text, ProgressBarContainer, ProgressBarValue, ProgressText, GrayBox, ImageBox, TextBox, ImageContainer, Image, Overlay, Boton, Texto } from '../Styles/styled'
 const FitnessAppIntroduction = () => {
   return (
     <div
@@ -146,7 +9,7 @@ const FitnessAppIntroduction = () => {
         gridTemplateColumns: "60% 40%",
       }}
     >
-      <Container>
+      <div>
         <Title>
           COMIENZA{" "}
           <span
@@ -273,7 +136,7 @@ const FitnessAppIntroduction = () => {
             
           </GrayBox>
         </div>
-      </Container>
+      </div>
       <ImageContainer>
         <Image
           src="https://res.cloudinary.com/madrigalsito/image/upload/v1709683450/SDH/pose-muscle-muscle-rod-press-hd-wallpaper-preview_axo8t6.jpg"

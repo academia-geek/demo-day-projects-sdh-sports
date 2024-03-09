@@ -6,6 +6,7 @@ import { Field, Form, Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { actionRegisterAsync } from "../Redux/actions/actionsRegister";
 import styled from "styled-components";
+import { ErrorMessage, FormInput, LoginLink, RegisterBox, RegisterContainer, RegisterForm, StyledLink, SubmitButton } from "../Styles/styled";
 
 interface FormValues {
   firstName: string;
@@ -14,72 +15,7 @@ interface FormValues {
   pass: string;
   pass2: string;
 }
-const RegisterContainer = styled.div`
-  display: flex;
-  height: 100vh;
-  background-image: url('https://res.cloudinary.com/madrigalsito/image/upload/v1709771520/SDH/png_xrj4te.png');
-  background-size: cover;
-  background-position: center;
-  font-family: "Dosis", sans-serif;
-  font-size: 20px;
-  
-`;
 
-const RegisterBox = styled.div`
-flex: 1;
-display: flex;
-justify-content: flex-start;
-align-items: center;
-padding: 40px;
-border-radius: 8px;
-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const RegisterForm = styled(Form)`
-  width: 100%;
-  max-width: 400px;
-`;
-
-const FormInput = styled(Field)`
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-
-const ErrorMessage = styled.div`
-  color: red;
-  margin-bottom: 8px;
-`;
-
-const SubmitButton = styled.button`
-  width: 100%;
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-
-`;
-
-const LoginLink = styled.div`
-text-align: center;
-margin-top: 16px;
-font-weight: bold;
-font-size: 25px;
-color: #ffd700;
-`;
-
-const StyledLink = styled(Link)`
-  &:hover {
-    color: #ffd700;
-  }
-`;
 const RegisterFormik = () => {
   const SignupSchema = Yup.object().shape({
     firstName: Yup.string()

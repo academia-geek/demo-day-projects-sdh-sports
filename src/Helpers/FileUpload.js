@@ -1,9 +1,9 @@
 export const FileUpload = async (file) => {
-  const urlCloudinary = "https://api.cloudinary.com/v1_1/madrigalsito/upload";
+  const urlCloudinary = "https://api.cloudinary.com/v1_1/sdhsports/upload";
 
   const formData = new FormData();
   // donde la voy a conectar o enviar
-  formData.append("upload_preset", "Tiendita");
+  formData.append("upload_preset", "SDHSports");
   //lo que quiero enviar o subir
   formData.append("file", file);
 
@@ -16,3 +16,4 @@ export const FileUpload = async (file) => {
 
   return data.secure_url;
 };
+

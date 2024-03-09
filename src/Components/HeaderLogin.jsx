@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CustomNav, NavLink, StyledBrand, StyledButton } from "../Styles/styled";
+import { actionLogoutAsyn } from "../Redux/actions/actionsLogin";
+import { useDispatch } from "react-redux";
 
 
 
-const Header = () => {
+const HeaderLogin = () => {
   const [activeLink, setActiveLink] = useState("home");
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
 
   // Función que actualiza el enlace activo
   const handleLinkClick = (id) => {
@@ -40,18 +43,27 @@ const Header = () => {
           <Navbar.Brand>
             <img
               src="https://res.cloudinary.com/madrigalsito/image/upload/v1709690342/SDH/OIG3_sqwexw.png"
-              width="110"
+              width="140"
               height="110"
               style={{
                 margin: "40px 20px 40px 40px",
               }}
             />
           </Navbar.Brand>
+          <Navbar.Brand style={{
+            marginRight: '-40px'
+          }}>
           <StyledBrand>SDH SPORTS</StyledBrand>
+          </Navbar.Brand>
+          
+          
         </Link>
 
         <Container>
-          <CustomNav>
+          <CustomNav style={{
+            marginRight: '30px',
+            marginLeft: '30px'
+          }}>
             <NavLink
               active={activeLink === "home"}
               onClick={() => {
@@ -62,19 +74,39 @@ const Header = () => {
               Home
             </NavLink>
             <NavLink
-              active={activeLink === "About"}
-              onClick={() => handleLinkClick("About")}
-            >
-              About
-            </NavLink>
-            <NavLink
-              active={activeLink === "Login"}
+              active={activeLink === "imc"}
               onClick={() => {
-                handleLinkClick("Login");
-                navigate("/login");
+                handleLinkClick("imc");
+                navigate("/imc");
               }}
             >
-              Login
+              Calculator
+            </NavLink>
+            <NavLink
+                active={activeLink === "rutinas"}
+                onClick={() => {
+                  handleLinkClick("rutinas");
+                  navigate("/rutinas");
+                }}
+            >
+              Rutines
+            </NavLink>
+            <NavLink
+              active={activeLink === ""}
+              onClick={() => {
+                handleLinkClick("");
+                navigate("");
+              }}
+            >
+              Food
+            </NavLink><NavLink
+              active={activeLink === ""}
+              onClick={() => {
+                handleLinkClick("");
+                navigate("");
+              }}
+            >
+              Shop
             </NavLink>
           </CustomNav>
         </Container>
@@ -85,11 +117,16 @@ const Header = () => {
             textDecoration: "none",
           }}
         >
-          <StyledButton>Free trial</StyledButton>
+           <StyledButton
+                variant="outline-success"
+                onClick={() => dispatch(actionLogoutAsyn())} 
+              >
+                Logout
+              </StyledButton>
         </Link>
       </Navbar>
     </>
   );
 };
 
-export default Header;
+export default HeaderLogin;
