@@ -12,7 +12,7 @@ import EditEjercicio from "../Components/EditEjercicio";
 import SearchEje from "../Components/SearchEje";
 import Perfil from "../Pages/Perfil";
 import PerfilEdit from "../Components/PerfilEdit";
-import PerfilList from "../Pages/PerfilList";
+import PerfilList from "../Components/PerfilList";
 
 const DashboardRouter = () => {
   return (
