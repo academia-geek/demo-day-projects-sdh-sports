@@ -16,4 +16,12 @@ export const typesLogin = {
     list: "[imc] list",
 
   };
+
+  export const typesPerfil = {
+    add: "[ejercicios] add",
+    edit: "[ejercicios] edit",
+    delete: "[ejercicios] delete",
+    list: "[ejercicios] list",
+    search: "[ejercicios] search",
+  };
   

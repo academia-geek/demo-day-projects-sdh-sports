@@ -91,7 +91,7 @@ const HeaderLogin = () => {
             >
               Rutines
             </NavLink>
-            <NavLink
+            {/* <NavLink
               active={activeLink === ""}
               onClick={() => {
                 handleLinkClick("");
@@ -99,7 +99,8 @@ const HeaderLogin = () => {
               }}
             >
               Food
-            </NavLink><NavLink
+            </NavLink> */}
+            <NavLink
               active={activeLink === ""}
               onClick={() => {
                 handleLinkClick("");
@@ -108,6 +109,16 @@ const HeaderLogin = () => {
             >
               Shop
             </NavLink>
+            <NavLink
+              active={activeLink === "Perfil"}
+              onClick={() => {
+                handleLinkClick("Perfil");
+                navigate("/perfil");
+              }}
+            >
+              Perfil
+            </NavLink>
+
           </CustomNav>
         </Container>
 

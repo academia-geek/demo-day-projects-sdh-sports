@@ -10,6 +10,9 @@ import Rutinas from "../Pages/Rutinas";
 import Home from "../Pages/Home";
 import EditEjercicio from "../Components/EditEjercicio";
 import SearchEje from "../Components/SearchEje";
+import Perfil from "../Pages/Perfil";
+import PerfilEdit from "../Components/PerfilEdit";
+import PerfilList from "../Pages/PerfilList";
 
 const DashboardRouter = () => {
   return (
@@ -25,6 +28,7 @@ const DashboardRouter = () => {
         <Route path = "/rutinas" element = {<Rutinas/>}/>
         <Route path = "/editEje" element = {<EditEjercicio/>}/>
         <Route path = "/searchEje" element = {<SearchEje/>}/>
+        <Route path = "/perfil" element = {<Perfil/>}/>
 
 
 

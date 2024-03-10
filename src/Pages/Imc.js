@@ -29,10 +29,13 @@ const Imc = () => {
    
   }
   
+  const alturaMetros = formValue.alt / 100;
+  const imc = (formValue.pes / (alturaMetros * alturaMetros)).toFixed(2);
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const alturaMetros = formValue.alt / 100;
-    const imc = formValue.pes / (alturaMetros * alturaMetros);
+
    
 
     const obj = {
@@ -107,7 +110,7 @@ const Imc = () => {
             <option value="femenino">Femenino</option>
           </Form.Select>
         </div>
-
+        <p> Tu imc es de {imc} </p>
         <button type="submit">Calcular IMC</button>
         
       </Form>
