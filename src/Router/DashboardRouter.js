@@ -13,6 +13,8 @@ import SearchEje from "../Components/SearchEje";
 import Perfil from "../Pages/Perfil";
 import PerfilEdit from "../Components/PerfilEdit";
 import PerfilList from "../Pages/PerfilList";
+import Shop from "../Pages/Shop";
+import AddProduct from "../Components/AddProduct";
 
 const DashboardRouter = () => {
   return (
@@ -29,6 +31,8 @@ const DashboardRouter = () => {
         <Route path = "/editEje" element = {<EditEjercicio/>}/>
         <Route path = "/searchEje" element = {<SearchEje/>}/>
         <Route path = "/perfil" element = {<Perfil/>}/>
+        <Route path = "/shop" element = {<Shop/>}/>
+        <Route path = "/addPro" element = {<AddProduct/>}/>
 
 
 

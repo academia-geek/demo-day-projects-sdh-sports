@@ -2,112 +2,91 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import useForm from "../Hooks/useForm";
 import { Button, Form } from "react-bootstrap";
-import { actionAddEjerciciosAsyn } from "../Redux/actions/actionsEjercicios";
+import { actionAddproductAsyn } from "../Redux/actions/actionsProducts";
 import { FileUpload } from "../Helpers/FileUpload";
-import { HeaderContainer, LinkRutine, MiniNavLink, Navigation, Titulo } from '../Styles/styled';
-import { Link } from "react-router-dom";
+import { HeaderContainer, LinkRutine, MiniNavLink, Navigation, Titulo } from "../Styles/styled";
 
-
-const AddEjercicio = () => {
+const AddProduct = () => {
   const dispatch = useDispatch();
   const [formValue, handleInputChange, reset] = useForm({
-    ejer: "",
-    rep: "",
-    ser: "",
-    desc: "",
-    img: "",
-    typ: "",
+    name: "",
+    price: "",
+    des: "",
+    foto: " ",
+    type: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formValue);
     let obj = {
       id: Math.floor(Math.random() * 200),
-      ejercicio: formValue.ejer,
-      repeticiones: formValue.rep,
-      series: formValue.ser,
-      description: formValue.desc,
-      type: formValue.typ,
-      imagen: formValue.img,
+      name: formValue.name,
+      price: formValue.price,
+      description: formValue.des,
+      foto: formValue.foto,
+      type: formValue.type,
     };
-    dispatch(actionAddEjerciciosAsyn(obj));
+    dispatch(actionAddproductAsyn(obj));
     reset();
   };
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     console.log(file);
     FileUpload(file)
-      .then((resp) => (formValue.img = resp))
+      .then((resp) => (formValue.foto = resp))
       .catch((err) => console.warn(err));
   };
 
   return (
     <div className="divAdd">
-
-<HeaderContainer>
-    <Navigation>
-    <MiniNavLink to="/addEje">Add</MiniNavLink>
-      <MiniNavLink to="/searchEje">Search</MiniNavLink>
-    </Navigation>
-    <Titulo> <LinkRutine to="/rutinas">Rutines</LinkRutine></Titulo>
-    <Navigation>
-      <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
-      <MiniNavLink to="/estable">Estable</MiniNavLink>
-      <MiniNavLink to="/gordo">Obeso</MiniNavLink>
-    </Navigation>
-  </HeaderContainer>
-
+      <HeaderContainer>
+        <Navigation>
+          <MiniNavLink to="/addPro">Add</MiniNavLink>
+        </Navigation>
+        <Titulo>
+          <LinkRutine to="/shop">Bienvenido!</LinkRutine>
+        </Titulo>
+        <Navigation>
+          
+        </Navigation>
+      </HeaderContainer>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formPlaintextname">
           <Form.Label column sm="2">
-            Ejericicio
+            Nombre Producto
           </Form.Label>
 
           <Form.Control
-            placeholder="Sentadillas"
-            name="ejer"
-            value={formValue.ejer}
+            placeholder="Mancuernas..."
+            name="name"
+            value={formValue.name}
             onChange={handleInputChange}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formPlaintextprice">
           <Form.Label column sm="2">
-            Repeticiones
+            Precio
           </Form.Label>
 
           <Form.Control
             type="text"
-            placeholder="15"
-            name="rep"
-            value={formValue.rep}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formPlaintextprice">
-          <Form.Label column sm="2">
-            Series
-          </Form.Label>
-
-          <Form.Control
-            type="text"
-            placeholder="4"
-            name="ser"
-            value={formValue.ser}
+            placeholder="89.000"
+            name="price"
+            value={formValue.price}
             onChange={handleInputChange}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPlaintextprice">
           <Form.Label column sm="2">
-            Description
+            Descripcion
           </Form.Label>
-
           <Form.Control
             type="text"
-            placeholder="Tendras que hacer..."
-            name="desc"
-            value={formValue.desc}
+            placeholder="Te pueden ayudar para..."
+            name="des"
+            value={formValue.des}
             onChange={handleInputChange}
           />
         </Form.Group>
@@ -115,14 +94,15 @@ const AddEjercicio = () => {
         <div>
           <label htmlFor="sexo">Tipo:</label>
           <Form.Select
-            name="typ"
-            value={formValue.typ}
+            name="type"
+            value={formValue.type}
             onChange={handleInputChange}
-            >
+          >
             <option value="">Seleccionar</option>
-            <option value="Gordo">Obeso</option>
-            <option value="Estable">Estable</option>
-            <option value="Flaco">Bajo Peso</option>
+            <option value="Proteinas">Proteinas</option>
+            <option value="Mancuernas">Mancuernas</option>
+            <option value="Maquinas">Maquinas</option>
+            <option value="Ropa">Ropa</option>
           </Form.Select>
         </div>
 
@@ -133,7 +113,7 @@ const AddEjercicio = () => {
 
           <Form.Control
             type="file"
-            name="img"
+            name="foto"
             accept=".jpg, .png, .webp"
             placeholder="Ingrese Foto"
             onChange={handleFileChange}
@@ -146,4 +126,4 @@ const AddEjercicio = () => {
   );
 };
 
-export default AddEjercicio;
+export default AddProduct;

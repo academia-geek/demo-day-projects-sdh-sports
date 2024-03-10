@@ -66,7 +66,7 @@ const Rutinas = () => {
         <Navigation>
           <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
           <MiniNavLink to="/estable">Estable</MiniNavLink>
-          <MiniNavLink to="/gordo">Gordo</MiniNavLink>
+          <MiniNavLink to="/gordo">Obeso</MiniNavLink>
         </Navigation>
       </HeaderContainer>
 
@@ -107,14 +107,14 @@ const Rutinas = () => {
                         Repeticiones: {p.repeticiones}
                       </ListGroup.Item>
                     </ListGroup>
-                    <Button
+                    {/* <Button
                       onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
                     >
                       X
                     </Button>
                     <Button variant="primary" onClick={() => handleShow(p)}>
                       Edit
-                    </Button>
+                    </Button> */}
                   </Card>
                 ))}
               </CardGroup>
@@ -158,14 +158,14 @@ const Rutinas = () => {
                         Repeticiones: {p.repeticiones}
                       </ListGroup.Item>
                     </ListGroup>
-                    <Button
+                    {/* <Button
                       onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
                     >
                       X
                     </Button>
                     <Button variant="primary" onClick={() => handleShow(p)}>
                       Edit
-                    </Button>
+                    </Button> */}
                   </Card>
                 ))}
               </CardGroup>
@@ -208,14 +208,14 @@ const Rutinas = () => {
                         Repeticiones: {p.repeticiones}
                       </ListGroup.Item>
                     </ListGroup>
-                    <Button
+                    {/* <Button
                       onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
                     >
                       X
                     </Button>
                     <Button variant="primary" onClick={() => handleShow(p)}>
                       Edit
-                    </Button>
+                    </Button> */}
                   </Card>
                 ))}
               </CardGroup>
