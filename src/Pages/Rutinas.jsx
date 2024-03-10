@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
   HeaderContainer,
+  LinkRutine,
   MiniNavLink,
   Navigation,
+  Rutine,
+  StyledCarousel,
   Titulo,
 } from "../Styles/styled";
 import { useDispatch, useSelector } from "react-redux";
@@ -58,7 +61,7 @@ const Rutinas = () => {
           <MiniNavLink to="/searchEje">Search</MiniNavLink>
         </Navigation>
         <Titulo>
-          <Link to="/rutinas">Rutinas</Link>
+          <LinkRutine to="/rutinas">Rutines</LinkRutine>
         </Titulo>
         <Navigation>
           <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
@@ -68,12 +71,21 @@ const Rutinas = () => {
       </HeaderContainer>
 
       <div>
-        <h2>
-          <Link to="/flaco">Bajo Peso</Link>
-        </h2>
-        <Carousel
+      <Link style={{
+          textDecoration: 'none'
+        }} to="/flaco">
+        <Rutine style={{
+          marginTop: '20px'
+        }}>
+          Bajo Peso
+        </Rutine>
+        </Link>
+        <StyledCarousel
           controls={false} 
           interval={3000}
+          style={{
+            margin: '30px'
+          }}
         >
           {[...Array(Math.ceil(ejerciciosFlaco.length / 4))].map((_, index) => (
             <Carousel.Item key={index}>
@@ -108,16 +120,23 @@ const Rutinas = () => {
               </CardGroup>
             </Carousel.Item>
           ))}
-        </Carousel>
+        </StyledCarousel>
       </div>
 
       <div>
-        <h2>
-          <Link to="/estable">Estable</Link>
-        </h2>
-        <Carousel
+      <Link style={{
+          textDecoration: 'none'
+        }} to="/estable">
+        <Rutine>
+          Estable
+        </Rutine>
+        </Link>
+        <StyledCarousel
           controls={false} 
           interval={3000}
+          style={{
+            margin: '30px'
+          }}
         >
           {[...Array(Math.ceil(ejerciciosEstable.length / 4))].map((_, index) => (
             <Carousel.Item key={index}>
@@ -152,15 +171,22 @@ const Rutinas = () => {
               </CardGroup>
             </Carousel.Item>
           ))}
-        </Carousel>
+        </StyledCarousel>
       </div>
       <div>
-        <h2>
-          <Link to="/gordo">Gordo</Link>
-        </h2>
-        <Carousel
+      <Link style={{
+          textDecoration: 'none'
+        }} to="/gordo">
+        <Rutine>
+          Obeso
+        </Rutine>
+        </Link>
+        <StyledCarousel
           controls={false} 
           interval={3000}
+          style={{
+            margin: '30px'
+          }}
         >
           {[...Array(Math.ceil(ejerciciosGordo.length / 4))].map((_, index) => (
             <Carousel.Item key={index}>
@@ -195,20 +221,22 @@ const Rutinas = () => {
               </CardGroup>
             </Carousel.Item>
           ))}
-        </Carousel>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Editar {selectData?.name}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {show && selectData !== "undefined" && (
-              <EditEjercicio datos={selectData} handleClose={handleClose} />
-            )}
-          </Modal.Body>
-          <Modal.Footer />
-        </Modal>
+        </StyledCarousel>
       </div>
     </>
   );
 };
 export default Rutinas;
+
+{/* <Modal show={show} onHide={handleClose}>
+  <Button>Hola</Button>
+  <Modal.Header closeButton>
+    <Modal.Title>Editar {selectData?.name}</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    {show && selectData !== "undefined" && (
+      <EditEjercicio datos={selectData} handleClose={handleClose} />
+    )}
+  </Modal.Body>
+  <Modal.Footer />
+</Modal> */}

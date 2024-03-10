@@ -4,7 +4,7 @@ import useForm from "../Hooks/useForm";
 import { Button, Form } from "react-bootstrap";
 import { actionAddEjerciciosAsyn } from "../Redux/actions/actionsEjercicios";
 import { FileUpload } from "../Helpers/FileUpload";
-import { HeaderContainer, MiniNavLink, Navigation, Titulo } from '../Styles/styled';
+import { HeaderContainer, LinkRutine, MiniNavLink, Navigation, Titulo } from '../Styles/styled';
 import { Link } from "react-router-dom";
 
 
@@ -49,7 +49,7 @@ const AddEjercicio = () => {
     <MiniNavLink to="/addEje">Add</MiniNavLink>
       <MiniNavLink to="/searchEje">Search</MiniNavLink>
     </Navigation>
-    <Titulo><Link to='/rutinas'>Rutinas</Link></Titulo>
+    <Titulo> <LinkRutine to="/rutinas">Rutines</LinkRutine></Titulo>
     <Navigation>
       <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
       <MiniNavLink to="/estable">Estable</MiniNavLink>
