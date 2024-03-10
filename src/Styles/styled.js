@@ -340,6 +340,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 background-color: white;
+
 color: black;
 padding: 0.5rem 1rem;
 `;
@@ -371,7 +372,10 @@ export const StyledCarousel = styled(Carousel)`
     margin-bottom: 0;
     margin-left: 47%;
     border: none;
+    background-color: rgba(128, 128, 128, 0.4);
+    padding: -5px;
   }
+  
 `;
 export const Rutine = styled.h2`
 color:  #12748e;

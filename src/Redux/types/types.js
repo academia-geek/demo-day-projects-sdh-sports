@@ -22,6 +22,12 @@ export const typesLogin = {
     edit: "[ejercicios] edit",
     delete: "[ejercicios] delete",
     list: "[ejercicios] list",
-    search: "[ejercicios] search",
   };
   
+  export const typesProducts = {
+    add: "[products] add",
+    edit: "[products] edit",
+    delete: "[products] delete",
+    list: "[products] list",
+    search: "[products] search",
+  };

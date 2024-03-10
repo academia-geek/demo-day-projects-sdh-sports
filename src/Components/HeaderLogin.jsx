@@ -91,20 +91,12 @@ const HeaderLogin = () => {
             >
               Rutines
             </NavLink>
-            {/* <NavLink
-              active={activeLink === ""}
-              onClick={() => {
-                handleLinkClick("");
-                navigate("");
-              }}
-            >
-              Food
-            </NavLink> */}
+           
             <NavLink
-              active={activeLink === ""}
+              active={activeLink === "Shop"}
               onClick={() => {
-                handleLinkClick("");
-                navigate("");
+                handleLinkClick("Shop");
+                navigate("/shop");
               }}
             >
               Shop

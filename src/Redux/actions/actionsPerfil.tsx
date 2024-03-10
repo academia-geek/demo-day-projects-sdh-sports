@@ -103,32 +103,3 @@ export const actionListperfilAsyn:any = () => {
       payload,
     };
   };
-//   // ------------------Seacrh--------------------------
-// export const actionSearchProductAsyn:any = (payload:any) => {
-//   return async (dispatch:any) => {
-//     // llamar a la colleccion para que me de los datos
-//     const productosCollection = collection(dataBase, "Perfil");
-//     // hacer el filtro por nombre
-//     const q = query(
-//       productosCollection,
-//       where("description", ">=", payload),
-//       where("description", "<=", payload + '\uf8ff')
-//     );
-
-//     const dataQ = await getDocs(q);
-//     console.log(dataQ);
-//     // paso los datos a el estado sync
-//     const prod:any[] = [];
-//     dataQ.forEach((docu) => {
-//       prod.push(docu.data());
-//     });
-//     dispatch(actionSearchProductSyn(prod));
-//   };
-// };
-
-// export const actionSearchProductSyn = (payload:any) => {
-//   return {
-//     type: typesPerfil.search,
-//     payload,
-//   };
-// };
