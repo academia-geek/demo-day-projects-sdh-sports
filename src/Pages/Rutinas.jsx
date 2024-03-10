@@ -61,7 +61,7 @@ const Rutinas = () => {
           <Link to="/rutinas">Rutinas</Link>
         </Titulo>
         <Navigation>
-          <MiniNavLink to="/flaco">Flaco</MiniNavLink>
+          <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
           <MiniNavLink to="/estable">Estable</MiniNavLink>
           <MiniNavLink to="/gordo">Gordo</MiniNavLink>
         </Navigation>
@@ -69,7 +69,7 @@ const Rutinas = () => {
 
       <div>
         <h2>
-          <Link to="/flaco">Flaco</Link>
+          <Link to="/flaco">Bajo Peso</Link>
         </h2>
         <Carousel
           controls={false} 
@@ -115,71 +115,87 @@ const Rutinas = () => {
         <h2>
           <Link to="/estable">Estable</Link>
         </h2>
-        <CardGroup>
-          {ejerciciosEstable.map((p) => (
-            <Card key={p.id}>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <Card.Img
-                  variant=""
-                  src={p.imagen}
-                  style={{ width: "560px", height: "370px" }}
-                />
-              </div>
-
-              <Card.Body>
-                <Card.Text>{p.description}</Card.Text>
-              </Card.Body>
-              <Button
-                onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
-              >
-                X
-              </Button>
-              <Button variant="primary" onClick={() => handleShow(p)}>
-                Edit
-              </Button>
-            </Card>
+        <Carousel
+          controls={false} 
+          interval={3000}
+        >
+          {[...Array(Math.ceil(ejerciciosEstable.length / 4))].map((_, index) => (
+            <Carousel.Item key={index}>
+              <CardGroup>
+                {ejerciciosEstable.slice(index * 4, (index + 1) * 4).map((p) => (
+                  <Card key={p.id}>
+                    <Card.Img
+                      variant=""
+                      src={p.imagen}
+                      style={{ width: "400px", height: "270px" }}
+                    />
+                    <Card.Body>
+                      <Card.Title>{p.ejercicio}</Card.Title>
+                      <Card.Text>{p.description}</Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                      <ListGroup.Item>Series: {p.series}</ListGroup.Item>
+                      <ListGroup.Item>
+                        Repeticiones: {p.repeticiones}
+                      </ListGroup.Item>
+                    </ListGroup>
+                    <Button
+                      onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
+                    >
+                      X
+                    </Button>
+                    <Button variant="primary" onClick={() => handleShow(p)}>
+                      Edit
+                    </Button>
+                  </Card>
+                ))}
+              </CardGroup>
+            </Carousel.Item>
           ))}
-        </CardGroup>
+        </Carousel>
       </div>
       <div>
         <h2>
           <Link to="/gordo">Gordo</Link>
         </h2>
-        <CardGroup>
-          {ejerciciosGordo.map((p) => (
-            <Card key={p.id}>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <Card.Img
-                  variant=""
-                  src={p.imagen}
-                  style={{ width: "560px", height: "370px" }}
-                />
-              </div>
-
-              <Card.Body>
-                <Card.Text>{p.description}</Card.Text>
-              </Card.Body>
-              <Button
-                onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
-              >
-                X
-              </Button>
-              <Button variant="primary" onClick={() => handleShow(p)}>
-                Edit
-              </Button>
-            </Card>
+        <Carousel
+          controls={false} 
+          interval={3000}
+        >
+          {[...Array(Math.ceil(ejerciciosGordo.length / 4))].map((_, index) => (
+            <Carousel.Item key={index}>
+              <CardGroup>
+                {ejerciciosGordo.slice(index * 4, (index + 1) * 4).map((p) => (
+                  <Card key={p.id}>
+                    <Card.Img
+                      variant=""
+                      src={p.imagen}
+                      style={{ width: "400px", height: "270px" }}
+                    />
+                    <Card.Body>
+                      <Card.Title>{p.ejercicio}</Card.Title>
+                      <Card.Text>{p.description}</Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                      <ListGroup.Item>Series: {p.series}</ListGroup.Item>
+                      <ListGroup.Item>
+                        Repeticiones: {p.repeticiones}
+                      </ListGroup.Item>
+                    </ListGroup>
+                    <Button
+                      onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
+                    >
+                      X
+                    </Button>
+                    <Button variant="primary" onClick={() => handleShow(p)}>
+                      Edit
+                    </Button>
+                  </Card>
+                ))}
+              </CardGroup>
+            </Carousel.Item>
           ))}
-        </CardGroup>
+        </Carousel>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Editar {selectData?.name}</Modal.Title>
