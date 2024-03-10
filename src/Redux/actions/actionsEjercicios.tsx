@@ -110,8 +110,8 @@ export const actionSearchEjerciciosAsyn:any = (payload:any) => {
     // hacer el filtro por nombre
     const q = query(
       productosCollection,
-      where("description", ">=", payload),
-      where("description", "<=", payload + '\uf8ff')
+      where("ejercicio", ">=", payload),
+      where("ejercicio", "<=", payload + '\uf8ff')
     );
 
     const dataQ = await getDocs(q);

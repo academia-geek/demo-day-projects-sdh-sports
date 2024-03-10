@@ -47,13 +47,13 @@ const AddEjercicio = () => {
 <HeaderContainer>
     <Navigation>
     <MiniNavLink to="/addEje">Add</MiniNavLink>
-      <MiniNavLink to="">Search</MiniNavLink>
+      <MiniNavLink to="/searchEje">Search</MiniNavLink>
     </Navigation>
     <Titulo><Link to='/rutinas'>Rutinas</Link></Titulo>
     <Navigation>
-      <MiniNavLink to="/flaco">Flaco</MiniNavLink>
-      <MiniNavLink to="/gordo">Gordo</MiniNavLink>
+      <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
       <MiniNavLink to="/estable">Estable</MiniNavLink>
+      <MiniNavLink to="/gordo">Obeso</MiniNavLink>
     </Navigation>
   </HeaderContainer>
 
@@ -78,7 +78,7 @@ const AddEjercicio = () => {
 
           <Form.Control
             type="text"
-            placeholder="3"
+            placeholder="15"
             name="rep"
             value={formValue.rep}
             onChange={handleInputChange}
@@ -92,7 +92,7 @@ const AddEjercicio = () => {
 
           <Form.Control
             type="text"
-            placeholder="15"
+            placeholder="4"
             name="ser"
             value={formValue.ser}
             onChange={handleInputChange}
@@ -120,9 +120,9 @@ const AddEjercicio = () => {
             onChange={handleInputChange}
             >
             <option value="">Seleccionar</option>
-            <option value="Gordo">Gordo</option>
+            <option value="Gordo">Obeso</option>
             <option value="Estable">Estable</option>
-            <option value="Flaco">Flaco</option>
+            <option value="Flaco">Bajo Peso</option>
           </Form.Select>
         </div>
 
