@@ -11,7 +11,7 @@ import {
       console.log(auth)
       createUserWithEmailAndPassword(auth, email, pass)
         .then(async ({ user }) => {
-          await updateProfile(auth.currentUser, { displayName: firstName});
+          await updateProfile(auth.currentUser, { displayName: firstName });
           dispatch(actionRegisterSync(firstName, email, pass, lastName));
         })
         .catch((error) => {

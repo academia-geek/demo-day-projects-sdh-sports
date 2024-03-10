@@ -1,5 +1,5 @@
 import { Field, Form } from 'formik';
-import {  Navbar } from 'react-bootstrap';
+import {  Carousel, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
@@ -346,6 +346,7 @@ padding: 0.5rem 1rem;
 
 export const Titulo = styled.h3`
 margin: 0;
+margin-left: 90px;
 `;
 
 export const Navigation = styled.div`
@@ -357,6 +358,32 @@ export const MiniNavLink = styled(Link)`
 color: black;
 text-decoration: none;
 
+&:hover {
+  text-decoration: underline;
+}
+`;
+
+/*********RUTINAS***************/
+
+export const StyledCarousel = styled(Carousel)`
+  .carousel-indicators {
+    margin-right: 47%;
+    margin-bottom: 0;
+    margin-left: 47%;
+    border: none;
+  }
+`;
+export const Rutine = styled.h2`
+color:  #12748e;
+text-align: center;
+
+&:hover {
+  text-decoration: underline;
+}
+`;
+export const LinkRutine = styled(Link)`
+color:  #12748e;
+text-decoration: none;
 &:hover {
   text-decoration: underline;
 }

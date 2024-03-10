@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
   HeaderContainer,
+  LinkRutine,
   MiniNavLink,
   Navigation,
   Titulo,
@@ -31,7 +32,7 @@ const Desnutrido = () => {
           <MiniNavLink to="/searchEje">Search</MiniNavLink>
         </Navigation>
         <Titulo>
-          <Link to="/rutinas">Rutinas</Link>
+        <LinkRutine to="/rutinas">Rutines</LinkRutine>
         </Titulo>
         <Navigation>
           <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
