@@ -122,6 +122,7 @@ const Imc = () => {
   };
   
   export default Imc;
+
   // const [showModal, setShowModal] = useState(false); 
 
   

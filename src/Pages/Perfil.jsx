@@ -96,7 +96,7 @@ const Perfil = () => {
           <Form.Control
             type="file"
             name="fotop"
-            accept="*image/*"
+            accept=".jpg, .png, .webp"
             placeholder="Ingrese Foto de perfil"
             onChange={handleFileChange}
           />
