@@ -3,6 +3,7 @@ import loginReducer from "../reducers/loginReducer";
 import ejerciciosReducer from "../reducers/ejerciciosReducer";
 import { thunk } from "redux-thunk";
 import imcReducer from "../reducers/imcReducer";
+import perfilReducer from "../reducers/perfilReducer";
 
 
 // Configuracion de los middleware para manejar acciones asíncronas con Redux-Thunk
@@ -19,6 +20,7 @@ const reducers = combineReducers({
   loginStore: loginReducer,
   ejerciciosStore: ejerciciosReducer,
   imcStore: imcReducer,
+  perfilStore: perfilReducer
 });
 
 export const store = createStore(
