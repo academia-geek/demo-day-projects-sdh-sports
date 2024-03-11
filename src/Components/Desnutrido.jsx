@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
+  CardsGroup,
   HeaderContainer,
   LinkRutine,
   MiniNavLink,
@@ -9,8 +10,13 @@ import {
   Titulo,
 } from "../Styles/styled";
 import { useDispatch, useSelector } from "react-redux";
-import { actionDeleteEjerciciosAsyn, actionListEjerciciosAsyn } from "../Redux/actions/actionsEjercicios";
+import {
+  actionDeleteEjerciciosAsyn,
+  actionListEjerciciosAsyn,
+} from "../Redux/actions/actionsEjercicios";
 import { Card, CardGroup, ListGroup } from "react-bootstrap";
+
+
 
 const Desnutrido = () => {
   const dispatch = useDispatch();
@@ -32,7 +38,7 @@ const Desnutrido = () => {
           <MiniNavLink to="/searchEje">Search</MiniNavLink>
         </Navigation>
         <Titulo>
-        <LinkRutine to="/rutinas">Rutines</LinkRutine>
+          <LinkRutine to="/rutinas">Rutines</LinkRutine>
         </Titulo>
         <Navigation>
           <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
@@ -42,36 +48,35 @@ const Desnutrido = () => {
       </HeaderContainer>
 
       <div>
-        <h2 style={{
-          color: 'white'
-        }}>
+        <h2
+          style={{
+            color: "white",
+          }}
+        >
           Bajo Peso
         </h2>
-        <CardGroup  style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}>
-                {ejerciciosFlaco.map((p) => (
-                  <Card key={p.id}>
-                    <Card.Img
-                      variant=""
-                      src={p.imagen}
-                      style={{ width: "400px", height: "270px"}}
-                    />
-                    <Card.Body>
-                      <Card.Title>{p.ejercicio}</Card.Title>
-                      <Card.Text>{p.description}</Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
-                      <ListGroup.Item>Series: {p.series}</ListGroup.Item>
-                      <ListGroup.Item>
-                        Repeticiones: {p.repeticiones}
-                      </ListGroup.Item>
-                    </ListGroup>
-                  </Card>
-                ))}
-              </CardGroup>
+        <CardsGroup>
+          {ejerciciosFlaco.map((p) => (
+            <Card key={p.id}>
+              <Card.Img
+                variant=""
+                src={p.imagen}
+                style={{ width: "400px", height: "270px" }}
+              />
+              <Card.Body>
+                <Card.Title>{p.ejercicio}</Card.Title>
+                <Card.Text>{p.description}</Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>Series: {p.series}</ListGroup.Item>
+                <ListGroup.Item>Repeticiones: {p.repeticiones}</ListGroup.Item>
+              </ListGroup>
+            </Card>
+          ))}
+        </CardsGroup>
       </div>
     </>
   );
 };
 
 export default Desnutrido;
-

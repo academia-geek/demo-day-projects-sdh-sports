@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
+  CardsGroup,
   HeaderContainer,
   LinkRutine,
   MiniNavLink,
@@ -48,7 +49,7 @@ const Estable = () => {
       <h2 style={{
         color: 'white'
       }}>Estable</h2>
-          <CardGroup  style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "20px" }}>
+          <CardsGroup>
                 {ejerciciosEstable.map((p) => (
                   <Card key={p.id}>
                     <Card.Img
@@ -68,7 +69,7 @@ const Estable = () => {
                     </ListGroup>
                   </Card>
                 ))}
-              </CardGroup>
+              </CardsGroup>
       </div>
      
     </>

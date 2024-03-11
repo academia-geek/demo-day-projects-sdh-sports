@@ -1,5 +1,5 @@
 import { Field, Form } from 'formik';
-import {  Carousel, Navbar } from 'react-bootstrap';
+import {  CardGroup, Carousel, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
@@ -391,4 +391,12 @@ text-decoration: none;
 &:hover {
   text-decoration: underline;
 }
+`;
+
+export const CardsGroup = styled(CardGroup)`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; 
+  margin:30px;
+
 `;

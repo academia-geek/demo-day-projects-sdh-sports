@@ -14,6 +14,8 @@ import Perfil from "../Pages/Perfil";
 import Shop from "../Pages/Shop";
 import AddProduct from "../Components/AddProduct";
 import Informacion from "../Pages/Informacion";
+// import PerfilEdit from "../Components/PerfilEdit";
+// import PerfilList from "../Pages/PerfilList";
 
 
 const DashboardRouter = () => {

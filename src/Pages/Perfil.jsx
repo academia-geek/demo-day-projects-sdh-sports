@@ -51,7 +51,7 @@ const Perfil = () => {
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formPlaintextname">
           <Form.Label column sm="2">
-            Nombre Completo
+          Full name
           </Form.Label>
 
           <Form.Control
@@ -64,7 +64,7 @@ const Perfil = () => {
 
         <Form.Group className="mb-3" controlId="formPlaintextprice">
           <Form.Label column sm="2">
-            phone
+            Phone
           </Form.Label>
 
           <Form.Control
@@ -75,22 +75,19 @@ const Perfil = () => {
             onChange={handleInputChange}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formPlaintextprice">
-          <Form.Label column sm="2">
-            genre
-          </Form.Label>
-
-          <Form.Control
-            type="text"
-            placeholder="genre"
+        <label htmlFor="sexo">Gender:</label>
+          <Form.Select
             name="genre"
             value={formValue.genre}
             onChange={handleInputChange}
-          />
-        </Form.Group>
+            >
+            <option value="">Seleccionar</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </Form.Select>
         <Form.Group className="mb-3" controlId="formPlaintextprice">
           <Form.Label column sm="2">
-            Foto de Perfil
+          Profile picture
           </Form.Label>
 
           <Form.Control
