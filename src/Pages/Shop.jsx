@@ -6,7 +6,7 @@ import {
   Offcanvas,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { actionDeleteProductAsyn, actionListproductAsyn } from "../Redux/actions/actionsProducts";
 import { HeaderContainer, LinkRutine, MiniNavLink, Navigation, Titulo } from "../Styles/styled";
 
@@ -15,7 +15,7 @@ const Shop = () => {
   const { products } = useSelector((store) => store.productsStore);
   const [show, setShow] = useState(false);
   const [selectedType, setSelectedType] = useState(null);
-
+  const navigate = useNavigate()
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleTypeClick = (type) => setSelectedType(type);
@@ -23,6 +23,11 @@ const Shop = () => {
   useEffect(() => {
     dispatch(actionListproductAsyn());
   }, [dispatch]);
+
+  const redirigir = (itemid) => {
+    navigate(`/informacion/${itemid}`)
+  }
+
 
   return (
     <div className="divTable">
@@ -57,7 +62,7 @@ const Shop = () => {
                 <Card.Img variant="" src={p.foto} style={{ width: "400px", height: "270px" }} />
                 <Card.Body>
                   <Card.Title>Precio: ${p.price}</Card.Title>
-                  <Button>Detalles</Button>
+                  <Button onClick={() => redirigir(p.id)}>Detalles</Button>
                 </Card.Body>
 
                 <Button
