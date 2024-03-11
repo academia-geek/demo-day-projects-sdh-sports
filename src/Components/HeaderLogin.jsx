@@ -51,7 +51,7 @@ const HeaderLogin = () => {
             />
           </Navbar.Brand>
           <Navbar.Brand style={{
-            marginRight: '-40px'
+            marginRight: '-45px'
           }}>
           <StyledBrand>SDH SPORTS</StyledBrand>
           </Navbar.Brand>
