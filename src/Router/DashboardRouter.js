@@ -11,14 +11,10 @@ import Home from "../Pages/Home";
 import EditEjercicio from "../Components/EditEjercicio";
 import SearchEje from "../Components/SearchEje";
 import Perfil from "../Pages/Perfil";
-import PerfilEdit from "../Components/PerfilEdit";
-<<<<<<< HEAD
-import PerfilList from "../Pages/PerfilList";
 import Shop from "../Pages/Shop";
 import AddProduct from "../Components/AddProduct";
-=======
-import PerfilList from "../Components/PerfilList";
->>>>>>> 9e3c562f08b873d548a8b9ff8a90196f56290d1b
+import Informacion from "../Pages/Informacion";
+
 
 const DashboardRouter = () => {
   return (
@@ -37,9 +33,8 @@ const DashboardRouter = () => {
         <Route path = "/perfil" element = {<Perfil/>}/>
         <Route path = "/shop" element = {<Shop/>}/>
         <Route path = "/addPro" element = {<AddProduct/>}/>
-
-
-
+        <Route path="/informacion/:itemid" element={<Informacion />}/>
+        
       </Routes>
       </>
   );
