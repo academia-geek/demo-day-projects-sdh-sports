@@ -14,6 +14,7 @@ import Perfil from "../Pages/Perfil";
 import Shop from "../Pages/Shop";
 import AddProduct from "../Components/AddProduct";
 import Informacion from "../Pages/Informacion";
+import PerfilList from "../Components/PerfilList";
 // import PerfilEdit from "../Components/PerfilEdit";
 // import PerfilList from "../Pages/PerfilList";
 
@@ -32,7 +33,7 @@ const DashboardRouter = () => {
         <Route path = "/rutinas" element = {<Rutinas/>}/>
         <Route path = "/editEje" element = {<EditEjercicio/>}/>
         <Route path = "/searchEje" element = {<SearchEje/>}/>
-        <Route path = "/perfil" element = {<Perfil/>}/>
+        <Route path = "/perfil" element = {<PerfilList/>}/>
         <Route path = "/shop" element = {<Shop/>}/>
         <Route path = "/addPro" element = {<AddProduct/>}/>
         <Route path="/informacion/:itemid" element={<Informacion />}/>

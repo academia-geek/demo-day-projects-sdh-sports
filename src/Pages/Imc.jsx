@@ -5,7 +5,7 @@ import useForm from "../Hooks/useForm";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
 
-import { CloseButton, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalTitle, ModalWrapper, BackgroundContainer } from "../Styles/styled";
+import { CloseButton, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalTitle, ModalWrapper, BackgroundContainer, StyledButton, StyledButton2 } from "../Styles/styled";
 
 
 
@@ -134,11 +134,18 @@ const Imc = () => {
             <option value="femenino">Femenino</option>
           </Form.Select> <br />
         </div>
-        <Button variant="primary" onClick={handleShow}>
-        Calcular IMC
-      </Button>
         
       </Form>
+
+      </div>
+      <div style={{
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center"}}>
+      <StyledButton2 variant="primary" onClick={handleShow}>
+        Calcular IMC
+      </StyledButton2>
+
       </div>
       {show && (
   <ModalWrapper>
