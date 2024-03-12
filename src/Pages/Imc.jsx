@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { actionCalcularimcAsync } from "../Redux/actions/imcActions";
 import { useDispatch } from "react-redux";
 import useForm from "../Hooks/useForm";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
+
+import { CloseButton, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalTitle, ModalWrapper, BackgroundContainer } from "../Styles/styled";
+
+
 
 const Imc = () => {
   const dispatch = useDispatch();
@@ -15,6 +19,10 @@ const Imc = () => {
     sex: "",
     
   });
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   
   const redirigirGordo = () => {
     navigate(`/gordo`);
@@ -31,10 +39,9 @@ const Imc = () => {
   
   const alturaMetros = formValue.alt / 100;
   const imc = (formValue.pes / (alturaMetros * alturaMetros)).toFixed(2);
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
+  
 
    
 
@@ -49,26 +56,43 @@ const Imc = () => {
     dispatch(actionCalcularimcAsync(obj));
     reset();
     
-    if (imc >= 29.9){
-      console.log("dentro gordo")
-      redirigirGordo()
-    }else if(imc >= 25.9  && imc < 29.9){
-      console.log("dentro estable")
-      redirigirEstable()
-    }else if(imc >= 10 && imc < 25.9){
-      console.log("dentro flaco")
-      redirigirFlaco()
-    }
+
     
   }
+  const handleAccept = () => {
+    handleClose(); // Cierra el modal
+  
+    if (imc >= 29.9) {
+      redirigirGordo();
+    } else if (imc >= 25.9 && imc < 29.9) {
+      redirigirEstable();
+    } else if (imc >= 10 && imc < 25.9) {
+      redirigirFlaco();
+    }
+  };
   return (
-    <div>
-      <h1>Calculadora de Índice de Masa Corporal (IMC)</h1>
+    <div  >
+      <BackgroundContainer>
+
+      <h1 style={{
+        margin: '0 auto',
+        textAlign: "center", 
+        color: 'white'
+      }}>
+        Calculadora de Índice de Masa Corporal (IMC)</h1>
+      <div style={{
+        display:'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0', 
+        color: 'white'
+      }}>
+
 
       <Form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="altura">Altura (en cm):</label>
-          <Form.Control
+          <Form.Control style={{"width":"125px"}}
             type="number"
             placeholder="Altura"
             name="alt"
@@ -78,7 +102,7 @@ const Imc = () => {
         </div>
         <div>
           <label htmlFor="peso">Peso (en kg):</label>
-          <Form.Control
+          <Form.Control style={{"width":"125px"}}
             type="number"
             placeholder="Peso"
             name="pes"
@@ -89,7 +113,7 @@ const Imc = () => {
 
         <div>
           <label htmlFor="eda">Edad:</label>
-          <Form.Control
+          <Form.Control style={{"width":"125px"}}
             type="number"
             placeholder="Edad"
             name="eda"
@@ -100,7 +124,7 @@ const Imc = () => {
 
         <div>
           <label htmlFor="sexo">Sexo:</label>
-          <Form.Select
+          <Form.Select style={{"width":"125px"}}
             name="sex"
             value={formValue.sex}
             onChange={handleInputChange}
@@ -108,13 +132,45 @@ const Imc = () => {
             <option value="">Seleccionar</option>
             <option value="masculino">Masculino</option>
             <option value="femenino">Femenino</option>
-          </Form.Select>
+          </Form.Select> <br />
         </div>
-        <p> Tu imc es de {imc} </p>
-        <button type="submit">Calcular IMC</button>
+        <Button variant="primary" onClick={handleShow}>
+        Calcular IMC
+      </Button>
         
       </Form>
+      </div>
+      {show && (
+  <ModalWrapper>
+    <ModalContent>
+      <ModalHeader>
+        <ModalTitle>Tu IMC actual es de</ModalTitle>
+        <CloseButton onClick={handleClose}>x</CloseButton>
+      </ModalHeader>
+      <ModalBody>
+        <p> {imc}</p>
+        {imc >= 29.9 && <p>Tu rutina recomendada es para bajar de peso.</p>}
+        {imc >= 25.9 && imc < 29.9 && (
+          <p>Tu rutina recomendada es para mantener un peso saludable.</p>
+        )}
+        {imc >= 10 && imc < 25.9 && (
+          <p>Tu rutina recomendada es para subir de peso.</p>
 
+        )}
+            <p>Presiona aceptar para dirigirte a tu rutina..</p>
+      </ModalBody>
+      <ModalFooter>
+        <Button variant="secondary" onClick={handleClose}>
+          Cerrar
+        </Button>
+        <Button variant="primary" onClick={handleAccept}>
+          Aceptar
+        </Button>
+      </ModalFooter>
+    </ModalContent>
+  </ModalWrapper>
+)}
+</BackgroundContainer>
     </div>
     
     );

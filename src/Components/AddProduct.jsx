@@ -42,7 +42,7 @@ const AddProduct = () => {
     <div className="divAdd">
       <HeaderContainer>
         <Navigation>
-          <MiniNavLink to="/addPro">Add</MiniNavLink>
+          <MiniNavLink to="/addPro">Añadir</MiniNavLink>
         </Navigation>
         <Titulo>
           <LinkRutine to="/shop">Bienvenido!</LinkRutine>

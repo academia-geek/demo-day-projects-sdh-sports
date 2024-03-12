@@ -24,54 +24,51 @@ const Estable = () => {
   const ejerciciosEstable = ejercicios.filter(
     (ejercicio) => ejercicio.type === "Estable"
   );
- 
 
   return (
     <>
       <HeaderContainer>
-        <Navigation>
-          <MiniNavLink to="/addEje">Add</MiniNavLink>
-          <MiniNavLink to="/searchEje">Search</MiniNavLink>
-        </Navigation>
+        <Navigation></Navigation>
         <Titulo>
-        <LinkRutine to="/rutinas">Rutines</LinkRutine>
+          <MiniNavLink style={{ marginLeft: "-40px" }} to="/addEje">
+            Añadir
+          </MiniNavLink>
+          <MiniNavLink to="/rutinas">Rutinas</MiniNavLink>
+          <MiniNavLink to="/searchEje">Buscar</MiniNavLink>
         </Titulo>
-        <Navigation>
-          <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
-          <MiniNavLink to="/estable">Estable</MiniNavLink>
-          <MiniNavLink to="/gordo">Obeso</MiniNavLink>
-        </Navigation>
+        <Navigation></Navigation>
       </HeaderContainer>
 
-     
-
       <div>
-      <h2 style={{
-        color: 'white'
-      }}>Estable</h2>
-          <CardsGroup>
-                {ejerciciosEstable.map((p) => (
-                  <Card key={p.id}>
-                    <Card.Img
-                      variant=""
-                      src={p.imagen}
-                      style={{ width: "400px", height: "270px"}}
-                    />
-                    <Card.Body>
-                      <Card.Title>{p.ejercicio}</Card.Title>
-                      <Card.Text>{p.description}</Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
-                      <ListGroup.Item>Series: {p.series}</ListGroup.Item>
-                      <ListGroup.Item>
-                        Repeticiones: {p.repeticiones}
-                      </ListGroup.Item>
-                    </ListGroup>
-                  </Card>
-                ))}
-              </CardsGroup>
+        <h2
+          style={{
+            color: "#12748e",
+            textAlign: "center",
+            margin: "20px 0",
+          }}
+        >
+          Estable
+        </h2>
+        <CardsGroup>
+          {ejerciciosEstable.map((p) => (
+            <Card key={p.id}>
+              <Card.Img
+                variant=""
+                src={p.imagen}
+                style={{ width: "400px", height: "270px" }}
+              />
+              <Card.Body>
+                <Card.Title>{p.ejercicio}</Card.Title>
+                <Card.Text>{p.description}</Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>Series: {p.series}</ListGroup.Item>
+                <ListGroup.Item>Repeticiones: {p.repeticiones}</ListGroup.Item>
+              </ListGroup>
+            </Card>
+          ))}
+        </CardsGroup>
       </div>
-     
     </>
   );
 };

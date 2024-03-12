@@ -21,14 +21,18 @@ const HeaderLogin = () => {
   useEffect(() => {
     // Actualiza el enlace activo según la ruta actual
     const path = location.pathname;
-    if (path === "/") {
+    if (path === "/flaco" || path === "/gordo" || path === "/estable") {
+      setActiveLink("rutinas");
+    } else if (path === "/") {
       setActiveLink("home");
-    } else if (path === "/about") {
-      setActiveLink("About");
-    } else if (path === "/login") {
-      setActiveLink("Login");
-    } else if (path === "/register") {
-      setActiveLink(""); // No hay enlace activo en la ruta de registro
+    } else if (path === "/imc") {
+      setActiveLink("imc");
+    } else if (path === "/rutinas") {
+      setActiveLink("rutinas");
+    } else if (path === "/shop") {
+      setActiveLink("Shop");
+    } else if (path === "/perfil") {
+      setActiveLink("Perfil");
     }
   }, [location.pathname]);
   return (
@@ -42,7 +46,7 @@ const HeaderLogin = () => {
         >
           <Navbar.Brand>
             <img
-              src="https://res.cloudinary.com/madrigalsito/image/upload/v1709690342/SDH/OIG3_sqwexw.png"
+              src="https://res.cloudinary.com/sdhsports/image/upload/v1709690342/SDH/OIG3_sqwexw.png"
               width="140"
               height="110"
               style={{
@@ -71,7 +75,7 @@ const HeaderLogin = () => {
                 navigate("/");
               }}
             >
-              Home
+              Inicio
             </NavLink>
             <NavLink
               active={activeLink === "imc"}
@@ -89,7 +93,7 @@ const HeaderLogin = () => {
                   navigate("/rutinas");
                 }}
             >
-              Rutines
+              Rutinas
             </NavLink>
            
             <NavLink
@@ -99,7 +103,7 @@ const HeaderLogin = () => {
                 navigate("/shop");
               }}
             >
-              Shop
+              Tienda
             </NavLink>
             <NavLink
               active={activeLink === "Perfil"}

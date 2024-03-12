@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
+  CustomNav,
   HeaderContainer,
   LinkRutine,
   MiniNavLink,
+  NavLink,
+  NavLinkPeque,
+  NavbarPeque,
   Navigation,
   Rutine,
   StyledCarousel,
@@ -20,11 +24,11 @@ import {
   Card,
   CardGroup,
   Carousel,
+  Container,
   ListGroup,
   Modal,
 } from "react-bootstrap";
 import EditEjercicio from "../Components/EditEjercicio";
-
 
 const Rutinas = () => {
   const dispatch = useDispatch();
@@ -43,171 +47,81 @@ const Rutinas = () => {
     dispatch(actionListEjerciciosAsyn());
   }, []);
 
-  const ejerciciosFlaco = ejercicios.filter(
-    (ejercicio) => ejercicio.type === "Flaco"
-  );
-  const ejerciciosEstable = ejercicios.filter(
-    (ejercicio) => ejercicio.type === "Estable"
-  );
-  const ejerciciosGordo = ejercicios.filter(
-    (ejercicio) => ejercicio.type === "Gordo"
-  );
+  // const ejerciciosFlaco = ejercicios.filter(
+  //   (ejercicio) => ejercicio.type === "Flaco"
+  // );
+  // const ejerciciosEstable = ejercicios.filter(
+  //   (ejercicio) => ejercicio.type === "Estable"
+  // );
+  // const ejerciciosGordo = ejercicios.filter(
+  //   (ejercicio) => ejercicio.type === "Gordo"
+  // );
 
   return (
     <>
       <HeaderContainer>
-        <Navigation>
-          <MiniNavLink to="/addEje">Add</MiniNavLink>
-          <MiniNavLink to="/searchEje">Search</MiniNavLink>
-        </Navigation>
+        <Navigation></Navigation>
         <Titulo>
-          <LinkRutine to="/rutinas">Rutines</LinkRutine>
+          <MiniNavLink style={{ marginLeft: "-40px" }} to="/addEje">
+            Añadir
+          </MiniNavLink>
+          <MiniNavLink to="/searchEje">Buscar</MiniNavLink>
         </Titulo>
-        <Navigation>
-          <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
-          <MiniNavLink to="/estable">Estable</MiniNavLink>
-          <MiniNavLink to="/gordo">Obeso</MiniNavLink>
-        </Navigation>
+        <Navigation></Navigation>
       </HeaderContainer>
 
-      <div>
-      <Link style={{
-          textDecoration: 'none'
-        }} to="/flaco">
-        <Rutine style={{
-          marginTop: '20px'
-        }}>
-          Bajo Peso
-        </Rutine>
-        </Link>
-        <StyledCarousel
-          controls={false} 
-          interval={3000}
-          style={{
-            margin: '30px'
-          }}
-        >
-          {[...Array(Math.ceil(ejerciciosFlaco.length / 4))].map((_, index) => (
-            <Carousel.Item key={index}>
-              <CardGroup>
-                {ejerciciosFlaco.slice(index * 4, (index + 1) * 4).map((p) => (
-                  <Card key={p.id}>
-                    <Card.Img
-                      variant=""
-                      src={p.imagen}
-                      style={{ width: "400px", height: "270px" }}
-                    />
-                    <Card.Body>
-                      <Card.Title>{p.ejercicio}</Card.Title>
-                      <Card.Text>{p.description}</Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
-                      <ListGroup.Item>Series: {p.series}</ListGroup.Item>
-                      <ListGroup.Item>
-                        Repeticiones: {p.repeticiones}
-                      </ListGroup.Item>
-                    </ListGroup>
-                    {/* <Button
-                      onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
-                    >
-                      X
-                    </Button>
-                    <Button variant="primary" onClick={() => handleShow(p)}>
-                      Edit
-                    </Button> */}
-                  </Card>
-                ))}
-              </CardGroup>
-            </Carousel.Item>
-          ))}
-        </StyledCarousel>
-      </div>
+      <Container>
+        <NavbarPeque>
+          <NavLinkPeque
+            style={{
+              marginLeft: "-100px",
+              
+            }}
+            navigate
+            to="/flaco"
+          >
+            Bajo
+          </NavLinkPeque>
+          <NavLinkPeque navigate to="/estable">
+            Estable
+          </NavLinkPeque>
+          <NavLinkPeque navigate to="/gordo">
+            Obeso
+          </NavLinkPeque>
+        </NavbarPeque>
+      </Container>
 
       <div>
-      <Link style={{
-          textDecoration: 'none'
-        }} to="/estable">
-        <Rutine>
-          Estable
-        </Rutine>
-        </Link>
-        <StyledCarousel
-          controls={false} 
-          interval={3000}
+        <Rutine
           style={{
-            margin: '30px'
+            marginTop: "20px",
           }}
         >
-          {[...Array(Math.ceil(ejerciciosEstable.length / 4))].map((_, index) => (
+          Rutinas
+        </Rutine>
+        <StyledCarousel
+          controls={false}
+          interval={3000}
+          style={{
+            margin: "30px",
+            
+          }}
+        >
+          {[...Array(Math.ceil(ejercicios.length / 4))].map((_, index) => (
             <Carousel.Item key={index}>
               <CardGroup>
-                {ejerciciosEstable.slice(index * 4, (index + 1) * 4).map((p) => (
+                {ejercicios.slice(index * 4, (index + 1) * 4).map((p) => (
                   <Card key={p.id}>
                     <Card.Img
                       variant=""
                       src={p.imagen}
-                      style={{ width: "400px", height: "270px" }}
+                      style={{ width: "400px", height: "270px", margin: '0 auto' }}
                     />
-                    <Card.Body>
-                      <Card.Title>{p.ejercicio}</Card.Title>
-                      <Card.Text>{p.description}</Card.Text>
+                    <Card.Body style={{ textAlign: "center", margin: '0 auto' }}>
+                      <Card.Title style={{ textAlign: "center" }}>
+                        {p.ejercicio}
+                      </Card.Title>
                     </Card.Body>
-                    <ListGroup className="list-group-flush">
-                      <ListGroup.Item>Series: {p.series}</ListGroup.Item>
-                      <ListGroup.Item>
-                        Repeticiones: {p.repeticiones}
-                      </ListGroup.Item>
-                    </ListGroup>
-                    {/* <Button
-                      onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
-                    >
-                      X
-                    </Button>
-                    <Button variant="primary" onClick={() => handleShow(p)}>
-                      Edit
-                    </Button> */}
-                  </Card>
-                ))}
-              </CardGroup>
-            </Carousel.Item>
-          ))}
-        </StyledCarousel>
-      </div>
-      <div>
-      <Link style={{
-          textDecoration: 'none'
-        }} to="/gordo">
-        <Rutine>
-          Obeso
-        </Rutine>
-        </Link>
-        <StyledCarousel
-          controls={false} 
-          interval={3000}
-          style={{
-            margin: '30px'
-          }}
-        >
-          {[...Array(Math.ceil(ejerciciosGordo.length / 4))].map((_, index) => (
-            <Carousel.Item key={index}>
-              <CardGroup>
-                {ejerciciosGordo.slice(index * 4, (index + 1) * 4).map((p) => (
-                  <Card key={p.id}>
-                    <Card.Img
-                      variant=""
-                      src={p.imagen}
-                      style={{ width: "400px", height: "270px" }}
-                    />
-                    <Card.Body>
-                      <Card.Title>{p.ejercicio}</Card.Title>
-                      <Card.Text>{p.description}</Card.Text>
-                    </Card.Body>
-                    <ListGroup className="list-group-flush">
-                      <ListGroup.Item>Series: {p.series}</ListGroup.Item>
-                      <ListGroup.Item>
-                        Repeticiones: {p.repeticiones}
-                      </ListGroup.Item>
-                    </ListGroup>
                     {/* <Button
                       onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
                     >
@@ -227,16 +141,3 @@ const Rutinas = () => {
   );
 };
 export default Rutinas;
-
-{/* <Modal show={show} onHide={handleClose}>
-  <Button>Hola</Button>
-  <Modal.Header closeButton>
-    <Modal.Title>Editar {selectData?.name}</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-    {show && selectData !== "undefined" && (
-      <EditEjercicio datos={selectData} handleClose={handleClose} />
-    )}
-  </Modal.Body>
-  <Modal.Footer />
-</Modal> */}
