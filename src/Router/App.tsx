@@ -9,6 +9,7 @@ import PublicRouter from "./PublicRouter";
 import DashboardRouter from "./DashboardRouter";
 import PrivateRouter from "./PrivateRouter";
 import Imc from "../Pages/Imc";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
 

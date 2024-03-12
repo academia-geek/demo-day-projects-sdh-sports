@@ -33,24 +33,24 @@ const Desnutrido = () => {
   return (
     <>
       <HeaderContainer>
-        <Navigation>
-          <MiniNavLink to="/addEje">Add</MiniNavLink>
-          <MiniNavLink to="/searchEje">Search</MiniNavLink>
-        </Navigation>
+        <Navigation></Navigation>
         <Titulo>
-          <LinkRutine to="/rutinas">Rutines</LinkRutine>
+          <MiniNavLink style={{ marginLeft: "-40px" }} to="/addEje">
+            Añadir
+          </MiniNavLink>
+          <MiniNavLink to="/rutinas">Rutinas</MiniNavLink>
+          <MiniNavLink to="/searchEje">Buscar</MiniNavLink>
         </Titulo>
-        <Navigation>
-          <MiniNavLink to="/flaco">Bajo Peso</MiniNavLink>
-          <MiniNavLink to="/estable">Estable</MiniNavLink>
-          <MiniNavLink to="/gordo">Obeso</MiniNavLink>
-        </Navigation>
+        <Navigation></Navigation>
       </HeaderContainer>
+
 
       <div>
         <h2
           style={{
-            color: "white",
+            color: "#12748e",
+            textAlign: 'center',
+            margin: '20px 0'
           }}
         >
           Bajo Peso

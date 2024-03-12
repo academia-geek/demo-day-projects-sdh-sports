@@ -29,7 +29,7 @@ const formik = useFormik({
       <form onSubmit={formik.handleSubmit}>
         <input
           name="search"
-          placeholder="Buscar Amigos"
+          placeholder="Buscar Ejercicios"
           onChange={formik.handleChange}
           value={formik.values.search}
           className={formik.touched.search && formik.errors.search ? 'error' : ''}

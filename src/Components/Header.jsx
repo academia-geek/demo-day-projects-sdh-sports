@@ -39,7 +39,7 @@ const Header = () => {
         >
           <Navbar.Brand>
             <img
-              src="https://res.cloudinary.com/madrigalsito/image/upload/v1709690342/SDH/OIG3_sqwexw.png"
+              src="https://res.cloudinary.com/sdhsports/image/upload/v1709690342/SDH/OIG3_sqwexw.png"
               width="110"
               height="110"
               style={{
@@ -59,13 +59,13 @@ const Header = () => {
                 navigate("/");
               }}
             >
-              Home
+              Inicio
             </NavLink>
             <NavLink
               active={activeLink === "About"}
               onClick={() => handleLinkClick("About")}
             >
-              About
+              Nosotros
             </NavLink>
             <NavLink
               active={activeLink === "Login"}

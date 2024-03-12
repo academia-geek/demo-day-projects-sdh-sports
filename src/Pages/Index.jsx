@@ -70,7 +70,7 @@ const FitnessAppIntroduction = () => {
               }}
             >
               <ImageBox
-                src="https://res.cloudinary.com/madrigalsito/image/upload/v1709687452/SDH/3310338_nn46jd.png"
+                src="https://res.cloudinary.com/sdhsports/image/upload/v1709687452/SDH/3310338_nn46jd.png"
                 alt="Descripción de la imagen"
               />
             </div>
@@ -95,7 +95,7 @@ const FitnessAppIntroduction = () => {
               }}
             >
               <ImageBox
-                src="https://res.cloudinary.com/madrigalsito/image/upload/v1709689243/SDH/30412_rxn9v0.png"
+                src="https://res.cloudinary.com/sdhsports/image/upload/v1709689243/SDH/30412_rxn9v0.png"
                 alt="Descripción de la imagen"
               />
             </div>
@@ -121,7 +121,7 @@ const FitnessAppIntroduction = () => {
               }}
             >
               <ImageBox
-                src="https://res.cloudinary.com/madrigalsito/image/upload/v1709689196/SDH/11849947_hecfid.png"
+                src="https://res.cloudinary.com/sdhsports/image/upload/v1709689196/SDH/11849947_hecfid.png"
                 alt="Descripción de la imagen"
               />
             </div>
@@ -139,7 +139,7 @@ const FitnessAppIntroduction = () => {
       </div>
       <ImageContainer>
         <Image
-          src="https://res.cloudinary.com/madrigalsito/image/upload/v1709683450/SDH/pose-muscle-muscle-rod-press-hd-wallpaper-preview_axo8t6.jpg"
+          src="https://res.cloudinary.com/sdhsports/image/upload/v1709683450/SDH/pose-muscle-muscle-rod-press-hd-wallpaper-preview_axo8t6.jpg"
           alt=""
         />
         <Overlay>

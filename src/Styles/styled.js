@@ -4,12 +4,21 @@ import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
 
+const colors = {
+  black: '#000000',
+  green: '#4caf50',
+  yellow: '#ffd700',
+  gray: 'gray',
+  blue: '#12748e',
+  yellowLight: '#ffff5f'
+};
+
 /*********REGISTER*************/
 
 export const RegisterContainer = styled.div`
   display: flex;
   height: 100vh;
-  background-image: url('https://res.cloudinary.com/madrigalsito/image/upload/v1709771520/SDH/png_xrj4te.png');
+  background-image: url('https://res.cloudinary.com/sdhsports/image/upload/v1709771520/SDH/png_xrj4te.png');
   background-size: cover;
   background-position: center;
   font-family: "Dosis", sans-serif;
@@ -40,6 +49,19 @@ export const FormInput = styled(Field)`
   border-radius: 4px;
 `;
 
+export const BackgroundContainer = styled.div`
+  background-image: url('https://res.cloudinary.com/sdhsports/image/upload/v1710209754/muscle-muscle-bodybuilding-press-wallpaper-preview_qkfo05.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+`;
+
+export const StyledFormControl = styled(Form)`
+max-width: 200px;
+`;
+
 export const ErrorMessage = styled.div`
   color: red;
   margin-bottom: 8px;
@@ -47,7 +69,7 @@ export const ErrorMessage = styled.div`
 
 export const SubmitButton = styled.button`
   width: 100%;
-  background-color: #4caf50;
+  background-color: ${colors.green};
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -62,7 +84,7 @@ export const LoginLink = styled.div`
   margin-top: 16px;
   font-weight: bold;
   font-size: 25px;
-  color: #ffd700;
+  color: ${colors.yellow};
 `;
 
 
@@ -71,7 +93,7 @@ export const LoginLink = styled.div`
 export const LoginContainer = styled.div`
   display: flex;
   height: 100vh;
-  background-image: url("https://res.cloudinary.com/madrigalsito/image/upload/v1709771520/SDH/png_xrj4te.png");
+  background-image: url("https://res.cloudinary.com/sdhsports/image/upload/v1709771520/SDH/png_xrj4te.png");
   background-size: cover;
   background-position: center;
   font-family: "Dosis", sans-serif;
@@ -105,7 +127,7 @@ export const LoginInput = styled.input`
 
 export const LoginButton = styled.button`
   width: 100%;
-  background-color: #4caf50;
+  background-color: ${colors.green};
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -137,12 +159,12 @@ export const RegisterLink = styled.div`
   margin-top: 16px;
   font-weight: bold;
   font-size: 25px;
-  color: #ffd700;
+  color: ${colors.yellow};
 `;
 
 export const StyledLink = styled(Link)`
   &:hover {
-    color: #ffd700;
+    color: ${colors.yellow};
   }
 `;
 
@@ -152,21 +174,41 @@ export const CustomNav = styled.nav`
   padding: 15px 200px;
   margin: 0 100px;
   border-radius: 40px;
-  background-color: gray;
+  background-color: ${colors.gray};
   font-size: 25px;
   color: white;
 
   a:hover {
-    color: #12748e;
+    color: ${colors.blue};
     font-size: 28px;
   }
+`;
+export const NavbarPeque = styled.nav`
+padding: 15px 220px 15px 220px;
+margin: 40px 400px;
+border-radius: 40px;
+background-color: ${colors.gray};
+font-size: 25px;
+color: white;
+
+a:hover {
+  color: ${colors.blue};
+  font-size: 28px;
+}
+`;
+export const NavLinkPeque = styled(Link)`
+  margin-right: 50px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: ${(props) => (props.active ? "#12748e" : "inherit")};
 `;
 
 export const NavLink = styled.a`
   margin-right: 40px;
   text-decoration: none;
   cursor: pointer;
-  color: ${(props) => (props.active ? "#12748E" : "inherit")};
+  color: ${(props) => (props.active ? "#12748e" : "inherit")};
 `;
 export const StyledBrand = styled(Navbar.Brand)`
   color: white;
@@ -176,12 +218,12 @@ export const StyledBrand = styled(Navbar.Brand)`
   cursor: pointer;
   margin-left: 40px;
   &:hover {
-    color: #12748e;
+    color: ${colors.blue};
   }
 `;
 
 export const StyledButton = styled.button`
-  background-color: #ffff5f;
+  background-color: ${colors.yellowLight};
   color: black;
   font-weight: bold;
   padding: 10px 100px;
@@ -205,7 +247,7 @@ export const StyledButton = styled.button`
 export const Title = styled.h1`
   font-size: 50px;
   margin-left: 60px;
-  color: #ffff5f;
+  color: ${colors.yellowLight};
   font-family: "Archivo Black", sans-serif;
 `;
 
@@ -279,8 +321,8 @@ export const ImageBox = styled.img`
 `;
 
 export const TextBox = styled.p`
-  font-size: 16px; /* Tamaño del texto */
-  color: #333; /* Color del texto */
+  font-size: 16px; 
+  color: #333; 
 `;
 
 export const ImageContainer = styled.div`
@@ -292,7 +334,7 @@ export const Image = styled.img`
   display: block;
   width: 600px;
   height: 750px;
-  border: 4px #ffff5f solid;
+  border: 4px ${colors.yellowLight} solid;
   border-radius: 15px;
 `;
 
@@ -311,7 +353,7 @@ export const Boton = styled.button`
   border: none;
   margin-bottom: 10px;
   cursor: pointer;
-  background-color: #ffff5f;
+  background-color: ${colors.yellowLight};
   color: black;
   font-weight: bold;
   padding: 10px 100px;
@@ -339,7 +381,7 @@ export const HeaderContainer = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
-background-color: white;
+background-color: ${colors.gray};
 
 color: black;
 padding: 0.5rem 1rem;
@@ -356,34 +398,36 @@ gap: 1rem;
 `;
 
 export const MiniNavLink = styled(Link)`
-color: black;
+color: white;
 text-decoration: none;
+margin-right: 40px;
+text-align: center;
+
 
 &:hover {
   text-decoration: underline;
+  color: ${colors.blue};
 }
 `;
 
 /*********RUTINAS***************/
 
 export const StyledCarousel = styled(Carousel)`
+margin-bottom: 40px;
+height: 400px;
   .carousel-indicators {
-    margin-right: 47%;
-    margin-bottom: 0;
-    margin-left: 47%;
+    z-index: 4;
+    margin-right: 40%;
+    margin-bottom: 0px;
+    margin-left: 40%;
     border: none;
-    background-color: rgba(128, 128, 128, 0.4);
-    padding: -5px;
+    padding: 10px;
   }
   
 `;
 export const Rutine = styled.h2`
 color:  #12748e;
 text-align: center;
-
-&:hover {
-  text-decoration: underline;
-}
 `;
 export const LinkRutine = styled(Link)`
 color:  #12748e;
@@ -399,4 +443,61 @@ export const CardsGroup = styled(CardGroup)`
   gap: 20px; 
   margin:30px;
 
+`;
+
+
+/********MODAL**********/
+
+export const ModalWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+export const ModalContent = styled.div`
+  background-color: black;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+`;
+
+export const ModalHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+
+export const ModalTitle = styled.h3`
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  
+`;
+
+export const CloseButton = styled.button`
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+`;
+
+export const ModalBody = styled.div`
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+`;
+
+export const ModalFooter = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
