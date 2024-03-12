@@ -50,12 +50,14 @@ export const FormInput = styled(Field)`
 `;
 
 export const BackgroundContainer = styled.div`
-  background-image: url('https://res.cloudinary.com/sdhsports/image/upload/v1710209754/muscle-muscle-bodybuilding-press-wallpaper-preview_qkfo05.jpg');
+  background-image: url('https://res.cloudinary.com/sdhsports/image/upload/v1710267288/1345029_2_krnjaj.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
+  align-Content: center;
+  align-items: center;
 `;
 
 export const StyledFormControl = styled(Form)`
@@ -241,6 +243,26 @@ export const StyledButton = styled.button`
     margin-right: 60px;
   }
 `;
+
+export const StyledButton2 = styled.button`
+  background-color: ${colors.yellowLight};
+  color: black;
+  font-weight: bold;
+  padding: 10px 10px;
+  border-radius: 20px;
+  margin-right: 40px;
+  box-shadow: 0 10px 25px 1px rgba(255, 255, 0, 0.5);
+  text-align: center;
+  white-space: nowrap;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 22px;
+  margin: 0 auto;
+
+  &:hover {
+    padding: 15px 100px;
+  }
+`;
+
 
 /**********INDEX**********/
 
@@ -454,7 +476,7 @@ export const ModalWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
