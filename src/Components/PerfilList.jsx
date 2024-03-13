@@ -9,7 +9,7 @@ import {
 import { FileUpload } from "../Helpers/FileUpload";
 import useForm from "../Hooks/useForm";
 import PerfilEdit from "../Components/PerfilEdit";
-import { ModalBody, ModalContent, ModalFooter, ModalHeader, ModalTitle, ModalWrapper, StyledButton } from "../Styles/styled";
+import { ModalBody, ModalContent, ModalFooter, ModalHeader, ModalTitle, ModalWrapper, StyledButtonMini } from "../Styles/styled";
 
 
 const PerfilList = () => {
@@ -33,7 +33,8 @@ const PerfilList = () => {
 
   return (
     <div className="divTable">
-      <Table striped bordered hover variant="dark">
+      <Table striped bordered hover variant="dark" style={{margin:"0 auto", "text-align": "center",alignContent:"center", "width": "1200px", fontFamily: "Dosis, sans-serif",
+          fontSize:"20px"}}>
         <thead>
           <tr>
             <th>user id</th>
@@ -44,7 +45,7 @@ const PerfilList = () => {
             <th>Acciónes</th>
           </tr>
         </thead>
-        <tbody style={{"text-align": "center", "width": "400px"}}>
+        <tbody>
           {perfil?.map((p) => (
             <tr key={p.id}>
               <td>{p.id}</td>
@@ -52,16 +53,23 @@ const PerfilList = () => {
               <td>{p.genre}</td>
               <td>{p.phone}</td>
               <td>
-                <img src={p.fotop} alt="" width={"20%"} />
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                <img src={p.fotop} alt="" width={"30%"} alignContent=  "center" />
+
+                </div>
               </td>
               <td style={{ padding: 10 }}>
-                <StyledButton onClick={() => dispatch(actionDeletePerfilAsyn(p.id))}>
+                <StyledButtonMini style={{marginInlineEnd:"10px"}} onClick={() => dispatch(actionDeletePerfilAsyn(p.id))}>
                   X
-                </StyledButton>
-                <StyledButton variant="primary" onClick={() => handleShow(p)}>
+                </StyledButtonMini >
+                <StyledButtonMini style={{marginInlineEnd:"10px"}} variant="primary" onClick={() => handleShow(p)}>
                   Edit
-                </StyledButton>
-                <StyledButton>Ver</StyledButton>
+                </StyledButtonMini>
+                <StyledButtonMini style={{marginInlineEnd:"10px"}}>Ver</StyledButtonMini>
               </td>
             </tr>
           ))}

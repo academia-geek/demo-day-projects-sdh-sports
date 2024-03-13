@@ -145,7 +145,7 @@ const FitnessAppIntroduction = () => {
         <Overlay>
           <Texto>COMIENZA A VIVIR TU EXPERIENCIA</Texto>
           <Link to='/register'>
-          <Boton>Free Trial</Boton>
+          <Boton>Prueba Gratis</Boton>
           </Link>
         </Overlay>
       </ImageContainer>

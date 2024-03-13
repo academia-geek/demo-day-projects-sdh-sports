@@ -16,8 +16,6 @@ import {
 } from "../Redux/actions/actionsEjercicios";
 import { Card, CardGroup, ListGroup } from "react-bootstrap";
 
-
-
 const Desnutrido = () => {
   const dispatch = useDispatch();
   const { ejercicios } = useSelector((store) => store.ejerciciosStore);
@@ -44,13 +42,12 @@ const Desnutrido = () => {
         <Navigation></Navigation>
       </HeaderContainer>
 
-
       <div>
         <h2
           style={{
             color: "#12748e",
-            textAlign: 'center',
-            margin: '20px 0'
+            textAlign: "center",
+            margin: "20px 0",
           }}
         >
           Bajo Peso
@@ -61,10 +58,15 @@ const Desnutrido = () => {
               <Card.Img
                 variant=""
                 src={p.imagen}
-                style={{ width: "400px", height: "270px" }}
+                style={{ width: "400px", height: "270px", margin: "0 auto" }}
               />
-              <Card.Body>
-                <Card.Title>{p.ejercicio}</Card.Title>
+              <Card.Body style={{ textAlign: "center", margin: "0 auto" }}>
+  
+                <Card.Title style={{ textAlign: "center", margin: "0 auto"  }}>
+                  {p.ejercicio}
+                </Card.Title>
+
+                
                 <Card.Text>{p.description}</Card.Text>
               </Card.Body>
               <ListGroup className="list-group-flush">

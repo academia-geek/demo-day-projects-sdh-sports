@@ -48,16 +48,19 @@ const Gordo = () => {
         >
           Obeso
         </h2>
+        
         <CardsGroup>
           {ejerciciosGordo.map((p) => (
             <Card key={p.id}>
               <Card.Img
                 variant=""
                 src={p.imagen}
-                style={{ width: "400px", height: "270px" }}
+                style={{ width: "400px", height: "270px", margin: "0 auto" }}
               />
-              <Card.Body>
-                <Card.Title>{p.ejercicio}</Card.Title>
+              <Card.Body style={{ textAlign: "center", margin: "0 auto" }}>
+                <Card.Title style={{ textAlign: "center", margin: "0 auto" }}>
+                  {p.ejercicio}
+                </Card.Title>
                 <Card.Text>{p.description}</Card.Text>
               </Card.Body>
               <ListGroup className="list-group-flush">

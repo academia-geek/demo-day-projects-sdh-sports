@@ -37,12 +37,12 @@ const PerfilEdit = ({ datos, handleClose }) => {
 
         <Form.Group className="mb-3" controlId="formPlaintextphone">
           <Form.Label column sm="2">
-            phone
+            Numero
           </Form.Label>
 
           <Form.Control
             type="number"
-            placeholder="phone"
+            placeholder="Numero"
             name="phone"
             value={formValue.phone}
             onChange={handleInputChange}

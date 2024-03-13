@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import useForm from "../Hooks/useForm";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Offcanvas } from "react-bootstrap";
 import { actionAddproductAsyn } from "../Redux/actions/actionsProducts";
 import { FileUpload } from "../Helpers/FileUpload";
-import { HeaderContainer, LinkRutine, MiniNavLink, Navigation, Titulo } from "../Styles/styled";
+import { HeaderContainer, LinkRutine, MiniNavLink,StyledButtonMini, Navigation, Titulo,FormContainer, BackgroundContainer4, StyledOffcanvasContainer } from "../Styles/styled";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const AddProduct = () => {
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const [selectedType, setSelectedType] = useState(null);
+  const navigate = useNavigate()
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleTypeClick = (type) => setSelectedType(type);
+
   const [formValue, handleInputChange, reset] = useForm({
     name: "",
     price: "",
@@ -40,17 +49,21 @@ const AddProduct = () => {
 
   return (
     <div className="divAdd">
+      <BackgroundContainer4>
+
       <HeaderContainer>
-        <Navigation>
-          <MiniNavLink to="/addPro">Añadir</MiniNavLink>
-        </Navigation>
+        <Navigation></Navigation>
         <Titulo>
-          <LinkRutine to="/shop">Bienvenido!</LinkRutine>
+          <MiniNavLink style={{ marginLeft: "-40px" }} to="/addPro">
+            Añadir
+          </MiniNavLink>
+          <MiniNavLink to='/shop'>Tienda</MiniNavLink>
+         <MiniNavLink onClick={handleShow}>Ver mas</MiniNavLink>
         </Titulo>
-        <Navigation>
-          
-        </Navigation>
+        <Navigation></Navigation>
       </HeaderContainer>
+      <FormContainer>
+
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formPlaintextname">
           <Form.Label column sm="2">
@@ -102,7 +115,6 @@ const AddProduct = () => {
             <option value="Proteinas">Proteinas</option>
             <option value="Mancuernas">Mancuernas</option>
             <option value="Maquinas">Maquinas</option>
-            <option value="Ropa">Ropa</option>
           </Form.Select>
         </div>
 
@@ -120,8 +132,35 @@ const AddProduct = () => {
           />
         </Form.Group>
 
-        <Button type="submit">Save</Button>
+        <div style={{
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center"}}>
+            <StyledButtonMini type="submit">Agregar</StyledButtonMini>
+          </div>
       </Form>
+
+      </FormContainer>
+
+
+
+      <StyledOffcanvasContainer show={show} onHide={handleClose} placement="end">
+      <Offcanvas.Header closeButton>
+        <Offcanvas.Title>Productos SDH Sports</Offcanvas.Title>
+      </Offcanvas.Header>
+      <Offcanvas.Body>
+      Para potenciar tus entrenamientos y promover la recuperación muscular, considera incorporar suplementos de proteínas de alta calidad en tu dieta. <br /> <br />Las proteínas son esenciales para la reparación y el crecimiento muscular, lo que te permite alcanzar tus objetivos de fuerza y resistencia de manera más efectiva. Además de la nutrición adecuada, el equipo de entrenamiento adecuado puede marcar una gran diferencia en tu progreso. <br /> <br />Las mancuernas ofrecen versatilidad y permiten trabajar una variedad de grupos musculares, desde los brazos hasta las piernas, mientras que las máquinas de entrenamiento ofrecen una forma efectiva de realizar ejercicios específicos con una resistencia controlada.
+
+        <div className="offcanvas-links">
+          <Link to="#" onClick={() => handleTypeClick(null)}>Todos</Link><br/>
+          <Link to="#" onClick={() => handleTypeClick("Proteinas")}>Suplementos de proteínas</Link><br/>
+          <Link to="#" onClick={() => handleTypeClick("Mancuernas")}>Mancuernas</Link><br/>
+          <Link to="#" onClick={() => handleTypeClick("Maquinas")}>Máquinas de entrenamiento</Link>
+        </div>
+      </Offcanvas.Body>
+    </StyledOffcanvasContainer>
+
+      </BackgroundContainer4>
     </div>
   );
 };

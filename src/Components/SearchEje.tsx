@@ -1,6 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-import { Button } from "react-bootstrap";
+import {StyledButton2, StyledButtonMini,Title} from "../Styles/styled";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
@@ -25,9 +24,29 @@ const formik = useFormik({
 
   return (
       <div>
-        <h1> Comienza a buscar tus Ejercicios!!!</h1>
+        <Title style={{
+          textAlign:'center'
+        }}> Comienza a buscar tus Ejercicios!</Title>
+        <div style={{
+          display:'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+
+       
       <form onSubmit={formik.handleSubmit}>
-        <input
+        <input style={{
+
+          borderRadius: "15px", 
+          marginRight: "20px", 
+          marginInlineStart:"20px", 
+          color:"white",
+          fontFamily: "Dosis, sans-serif",
+          fontSize: "20px",
+          padding: '10px'
+        }}
+
+
           name="search"
           placeholder="Buscar Ejercicios"
           onChange={formik.handleChange}
@@ -35,8 +54,9 @@ const formik = useFormik({
           className={formik.touched.search && formik.errors.search ? 'error' : ''}
         />
 
-        <Button type="submit">Buscar</Button>
+        <StyledButtonMini type="submit">Buscar</StyledButtonMini>
       </form>
+      </div>
       <Rutinas />
     </div>
   )

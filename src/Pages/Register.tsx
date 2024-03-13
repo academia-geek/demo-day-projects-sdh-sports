@@ -6,7 +6,7 @@ import { Field, Form, Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { actionRegisterAsync } from "../Redux/actions/actionsRegister";
 import styled from "styled-components";
-import { ErrorMessage, FormInput, LoginLink, RegisterBox, RegisterContainer, RegisterForm, StyledLink, SubmitButton } from "../Styles/styled";
+import { ErrorMessage, FormInput, Title, LoginLink, RegisterBox, RegisterContainer, RegisterForm, StyledLink, SubmitButton } from "../Styles/styled";
 
 interface FormValues {
   firstName: string;
@@ -54,6 +54,10 @@ const RegisterFormik = () => {
 
   return (
     <RegisterContainer>
+      <Title style={{color:"White"}}>
+        <p>ㅤㅤ¿Que esperas para </p>
+        <p>Registrarte en SDH | Sports? </p>  
+      </Title>
       <RegisterBox>
         <Formik
           initialValues={{
@@ -70,7 +74,7 @@ const RegisterFormik = () => {
             <RegisterForm>
               <FormInput
                 name="firstName"
-                placeholder="First Name"
+                placeholder="Nombre"
               />
               {errors.firstName && touched.firstName && (
                 <ErrorMessage>{errors.firstName}</ErrorMessage>
@@ -78,7 +82,7 @@ const RegisterFormik = () => {
 
               <FormInput
                 name="lastName"
-                placeholder="Last Name"
+                placeholder="Apellido"
               />
               {errors.lastName && touched.lastName && (
                 <ErrorMessage>{errors.lastName}</ErrorMessage>
@@ -87,7 +91,7 @@ const RegisterFormik = () => {
               <FormInput
                 name="email"
                 type="email"
-                placeholder="Email"
+                placeholder="Correo"
               />
               {errors.email && touched.email && (
                 <ErrorMessage>{errors.email}</ErrorMessage>
@@ -96,7 +100,7 @@ const RegisterFormik = () => {
               <FormInput
                 name="pass"
                 type="password"
-                placeholder="Password"
+                placeholder="Contraseña"
               />
               {errors.pass && touched.pass && (
                 <ErrorMessage>{errors.pass}</ErrorMessage>
@@ -105,7 +109,7 @@ const RegisterFormik = () => {
               <FormInput
                 name="pass2"
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="Confirmar Contraseña"
               />
               {errors.pass2 && touched.pass2 && (
                 <ErrorMessage>{errors.pass2}</ErrorMessage>
@@ -113,7 +117,7 @@ const RegisterFormik = () => {
 
               <SubmitButton type="submit">Enviar</SubmitButton>
               <LoginLink>
-                <StyledLink to="/login">Login</StyledLink>
+                <StyledLink to="/login">Iniciar Sesion</StyledLink>
               </LoginLink>
             </RegisterForm>
           )}
