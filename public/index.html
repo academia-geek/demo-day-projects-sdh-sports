@@ -19,12 +19,99 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
-  <footer>Made by David Madrigal and Daniel Molina </footer>
+  <footer class="footer">
+    <div class="footer-left">
+        <div class="logo">SDH Sports</div>
+        <img src="https://res.cloudinary.com/sdhsports/image/upload/v1710004949/SDH/iedgbgtoua0ttrkw6tab.png" alt="">
+    </div>
+    <div class="footer-middle">
+        <div class="info">
+            <p>Derechos Reservados</p>
+            <p>Política de Privacidad</p>
+            <p>Desarrollado por Daniel Molina y David Madrigal</p>
+        </div>
+    </div>
+    <div class="footer-right">
+        <div class="info">
+            <p>Contacto: 319 3356347 / 3197027486</p>
+            <p>Gmail: dmadrigalv07@gmail.com - daniel.torres3132@gmail.com</p>
+            <div class="iconos">
+                <a href="https://web.whatsapp.com/"><img src="https://res.cloudinary.com/sdhsports/image/upload/v1710301258/SDH/3670051_lnsuaz.png" alt="Whatsapp"></a>
+                <a href="https://www.facebook.com/"><img src="https://res.cloudinary.com/sdhsports/image/upload/v1710300886/SDH/5968764_whwdc6.png" alt="Facebook"></a>
+                <a href="#"><img src="https://res.cloudinary.com/sdhsports/image/upload/v1710300908/SDH/145807_yzyvyf.png" alt="LinkedIn"></a>
+                <a href="#"><img src="https://res.cloudinary.com/sdhsports/image/upload/v1710300908/SDH/145807_yzyvyf.png" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com/sdh.sports_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="https://res.cloudinary.com/sdhsports/image/upload/v1710300882/SDH/174855_m512o3.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com/@sebas.entrenador17?is_from_webapp=1&sender_device=pc"><img src="https://res.cloudinary.com/sdhsports/image/upload/v1710301176/SDH/3046121_vb7t8y.png" alt="TikTok"></a>
+                <a href="https://www.youtube.com/"><img src="https://res.cloudinary.com/sdhsports/image/upload/v1710301172/SDH/3670147_elmhnd.png" alt="YouTube"></a>
+            </div>
+        </div>
+    </div>
+</footer>
 </html>
 <style>
   body {
     background-color: black;
   }
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 10px;
+    background-color: black;
+    margin-top: 30px;
+    color: white;
+    font-Family: "Dosis", sans-serif;
+  font-Size:20px;
+}
+
+.footer > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.footer-left {
+  justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 300px;
+}
+.footer-left img{
+  width: 100px;
+}
+
+.footer-middle {
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: -40px;
+}
+
+.footer-right {
+    justify-content: flex-end;
+    line-height: 30px;
+    margin-left: 100px;
+    
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.iconos a {
+  width: 40px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.info {
+    text-align: center;
+}
 </style>
 
 

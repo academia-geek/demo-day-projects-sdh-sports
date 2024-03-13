@@ -5,7 +5,20 @@ import useForm from "../Hooks/useForm";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
 
-import { CloseButton, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalTitle, ModalWrapper, BackgroundContainer, StyledButton, StyledButton2 } from "../Styles/styled";
+import { CloseButton, 
+  ModalBody, 
+  ModalContent, 
+  ModalFooter, 
+  ModalHeader, 
+  ModalTitle, 
+  ModalWrapper, 
+  BackgroundContainer,
+   StyledButton2, 
+   Title,
+    FormContainer,
+     LabelForm,
+    StyledButtonMini,
+  StyledButtonCerrar } from "../Styles/styled";
 
 
 
@@ -74,25 +87,20 @@ const Imc = () => {
     <div  >
       <BackgroundContainer>
 
-      <h1 style={{
+      <Title style={{
         margin: '0 auto',
         textAlign: "center", 
-        color: 'white'
+        color:"white"
       }}>
-        Calculadora de Índice de Masa Corporal (IMC)</h1>
-      <div style={{
-        display:'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0', 
-        color: 'white'
-      }}>
-
-
+        Calculadora de Índice de Masa Corporal (IMC)</Title>
+  <FormContainer>
       <Form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="altura">Altura (en cm):</label>
-          <Form.Control style={{"width":"125px"}}
+          <LabelForm htmlFor="altura" >Altura (en cm):</LabelForm>
+          <Form.Control style={{"width":"125px",
+                  fontFamily: "Dosis, sans-serif",
+                  fontSize: "20px"
+        }}
             type="number"
             placeholder="Altura"
             name="alt"
@@ -102,7 +110,9 @@ const Imc = () => {
         </div>
         <div>
           <label htmlFor="peso">Peso (en kg):</label>
-          <Form.Control style={{"width":"125px"}}
+          <Form.Control style={{"width":"125px",
+          fontFamily: "Dosis, sans-serif",
+          fontSize: "20px"}}
             type="number"
             placeholder="Peso"
             name="pes"
@@ -113,7 +123,9 @@ const Imc = () => {
 
         <div>
           <label htmlFor="eda">Edad:</label>
-          <Form.Control style={{"width":"125px"}}
+          <Form.Control style={{"width":"125px",
+            fontFamily: "Dosis, sans-serif",
+            fontSize: "20px"}}
             type="number"
             placeholder="Edad"
             name="eda"
@@ -124,7 +136,9 @@ const Imc = () => {
 
         <div>
           <label htmlFor="sexo">Sexo:</label>
-          <Form.Select style={{"width":"125px"}}
+          <Form.Select style={{"width":"125px",
+          fontFamily: "Dosis, sans-serif",
+          fontSize: "20px"}}
             name="sex"
             value={formValue.sex}
             onChange={handleInputChange}
@@ -137,7 +151,8 @@ const Imc = () => {
         
       </Form>
 
-      </div>
+      {/* </div> */}
+
       <div style={{
         display:"flex",
         justifyContent:"center",
@@ -145,14 +160,15 @@ const Imc = () => {
       <StyledButton2 variant="primary" onClick={handleShow}>
         Calcular IMC
       </StyledButton2>
-
       </div>
+      </FormContainer>
+
       {show && (
   <ModalWrapper>
     <ModalContent>
       <ModalHeader>
         <ModalTitle>Tu IMC actual es de</ModalTitle>
-        <CloseButton onClick={handleClose}>x</CloseButton>
+        <CloseButton onClick={handleClose} style={{color:"white"}}>x</CloseButton>
       </ModalHeader>
       <ModalBody>
         <p> {imc}</p>
@@ -167,12 +183,12 @@ const Imc = () => {
             <p>Presiona aceptar para dirigirte a tu rutina..</p>
       </ModalBody>
       <ModalFooter>
-        <Button variant="secondary" onClick={handleClose}>
+        <StyledButtonCerrar variant="secondary" onClick={handleClose}>
           Cerrar
-        </Button>
-        <Button variant="primary" onClick={handleAccept}>
+        </StyledButtonCerrar>
+        <StyledButtonMini variant="primary" onClick={handleAccept}>
           Aceptar
-        </Button>
+        </StyledButtonMini>
       </ModalFooter>
     </ModalContent>
   </ModalWrapper>
@@ -186,29 +202,4 @@ const Imc = () => {
   
   export default Imc;
 
-  // const [showModal, setShowModal] = useState(false); 
-
   
-  // const handleClose = () => setShowModal(false);
-  
-  // const handleShow = () => {
-    //   setShowModal(true);
-    //   console.log("Dentro del showmodal ", showModal);
-    // };
-    
-    
-    {/* Modal */}
-    {/* <Modal show={showModal} onHide={handleShow}>
-    
-  <Modal.Header closeButton>
-  <Modal.Title>Hola</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-  ¡Hola! Este es un mensaje de ejemplo que se muestra en el modal.
-  </Modal.Body>
-  <Modal.Footer>
-  <Button variant="secondary" onClick={() => setShowModal(handleClose)}>
-  Cerrar
-  </Button>
-  </Modal.Footer>
-</Modal> */}

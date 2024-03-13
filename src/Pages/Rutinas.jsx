@@ -99,6 +99,13 @@ const Rutinas = () => {
         >
           Rutinas
         </Rutine>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+
+        
         <StyledCarousel
           controls={false}
           interval={3000}
@@ -111,7 +118,10 @@ const Rutinas = () => {
             <Carousel.Item key={index}>
               <CardGroup>
                 {ejercicios.slice(index * 4, (index + 1) * 4).map((p) => (
-                  <Card key={p.id}>
+                  <Card key={p.id} style={{
+                    fontFamily: "Dosis, sans-serif",
+                    fontSize: "20px"
+                  }}>
                     <Card.Img
                       variant=""
                       src={p.imagen}
@@ -122,20 +132,14 @@ const Rutinas = () => {
                         {p.ejercicio}
                       </Card.Title>
                     </Card.Body>
-                    {/* <Button
-                      onClick={() => dispatch(actionDeleteEjerciciosAsyn(p.id))}
-                    >
-                      X
-                    </Button>
-                    <Button variant="primary" onClick={() => handleShow(p)}>
-                      Edit
-                    </Button> */}
+                  
                   </Card>
                 ))}
               </CardGroup>
             </Carousel.Item>
           ))}
         </StyledCarousel>
+        </div>
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import useForm from "../Hooks/useForm";
 import { Button, Form } from "react-bootstrap";
 import { actionAddEjerciciosAsyn } from "../Redux/actions/actionsEjercicios";
 import { FileUpload } from "../Helpers/FileUpload";
-import { HeaderContainer, LinkRutine, MiniNavLink, Navigation, Titulo } from '../Styles/styled';
+import { HeaderContainer, LinkRutine, MiniNavLink, Navigation, Titulo, FormContainer, BackgroundContainer2, StyledButtonMini } from '../Styles/styled';
 import { Link } from "react-router-dom";
 
 
@@ -43,6 +43,7 @@ const AddEjercicio = () => {
 
   return (
     <div className="divAdd">
+<BackgroundContainer2>
 
 <HeaderContainer>
         <Navigation></Navigation>
@@ -56,6 +57,7 @@ const AddEjercicio = () => {
         <Navigation></Navigation>
       </HeaderContainer>
 
+    <FormContainer>
 
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formPlaintextname">
@@ -140,8 +142,21 @@ const AddEjercicio = () => {
           />
         </Form.Group>
 
-        <Button type="submit">Save</Button>
+        
       </Form>
+      <div style={{
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center"}}>
+
+          <StyledButtonMini type="submit">
+            Agregar
+            </StyledButtonMini>
+
+        </div>
+    </FormContainer>
+
+</BackgroundContainer2>
     </div>
   );
 };

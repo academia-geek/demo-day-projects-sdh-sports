@@ -1,5 +1,5 @@
 import { Field, Form } from 'formik';
-import {  CardGroup, Carousel, Navbar } from 'react-bootstrap';
+import {  CardGroup, Carousel, Navbar, Offcanvas } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
@@ -9,14 +9,15 @@ const colors = {
   green: '#4caf50',
   yellow: '#ffd700',
   gray: 'gray',
-  blue: '#12748e',
-  yellowLight: '#ffff5f'
+  blue: 'gold',
+  yellowLight: '#ffff5f',
+  red:'#9f1239'
 };
 
 /*********REGISTER*************/
 
 export const RegisterContainer = styled.div`
-  display: flex;
+  padding-top: 1em;
   height: 100vh;
   background-image: url('https://res.cloudinary.com/sdhsports/image/upload/v1709771520/SDH/png_xrj4te.png');
   background-size: cover;
@@ -25,12 +26,38 @@ export const RegisterContainer = styled.div`
   font-size: 20px;
 `;
 
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  margin-top: 2%;
+  margin-right: 43%;
+  margin-left: 43%;
+  border: 46px none #000000;
+  box-shadow: 13px 7px 55px -11px rgba(18,53,59,0.73);
+  border-radius: 48px 48px 48px 48px;
+  opacity: 83%;
+  font-Family: "Dosis", sans-serif;
+  font-Size:20px;
+`;
+
+
+export const LabelForm = styled.label`
+  font-family: "Dosis", sans-serif;
+  font-size: 20px;
+  
+`;
+
 export const RegisterBox = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 40px;
+  margin-left: 7em;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
@@ -51,6 +78,36 @@ export const FormInput = styled(Field)`
 
 export const BackgroundContainer = styled.div`
   background-image: url('https://res.cloudinary.com/sdhsports/image/upload/v1710267288/1345029_2_krnjaj.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  align-Content: center;
+  align-items: center;
+`;
+export const BackgroundContainer2 = styled.div`
+  background-image: url('https://res.cloudinary.com/sdhsports/image/upload/v1710296347/IsR6Au_ttfhfy.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  align-Content: center;
+  align-items: center;
+`;
+export const BackgroundContainer3 = styled.div`
+  background-image: url('https://res.cloudinary.com/sdhsports/image/upload/v1710301748/Sustainable_Fitness_Eco_Sports_kdhx3d.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  align-Content: center;
+  align-items: center;
+`;
+export const BackgroundContainer4 = styled.div`
+  background-image: url('https://res.cloudinary.com/sdhsports/image/upload/v1710302659/1043655_pbrmib.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -93,21 +150,22 @@ export const LoginLink = styled.div`
 /*********LOGIN*************/
 
 export const LoginContainer = styled.div`
-  display: flex;
+  padding-top: 1em;
+  padding-left: 1em;
   height: 100vh;
   background-image: url("https://res.cloudinary.com/sdhsports/image/upload/v1709771520/SDH/png_xrj4te.png");
   background-size: cover;
   background-position: center;
   font-family: "Dosis", sans-serif;
   font-size: 20px;
+  color:white;
 `;
 
 export const LoginBox = styled.div`
   flex: 1;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 40px;
+  margin-left: 10em;
+  margin-top: 4em;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
@@ -173,16 +231,38 @@ export const StyledLink = styled(Link)`
 /********HEADER************/
 
 export const CustomNav = styled.nav`
-  padding: 15px 200px;
-  margin: 0 100px;
+  display: flex;
+  align-items: center;
+  padding: 15px 140px 15px 130px;
+  margin: 0 0 0 90px;
   border-radius: 40px;
   background-color: ${colors.gray};
   font-size: 25px;
   color: white;
+  font-Family: "Dosis", sans-serif;
+  font-Size:22px;
+
+  a:hover {
+    color: gold;
+    font-size: 28px;
+  }
+`;
+
+export const CustomNav2 = styled.nav`
+display: flex;
+align-items: center;
+  padding: 15px 100px 15px 130px;
+  margin: 0 0 0 90px;
+  border-radius: 40px;
+  background-color: ${colors.gray};
+  font-size: 25px;
+  color: white;
+  font-Family: "Dosis", sans-serif;
+  font-Size:28px;
 
   a:hover {
     color: ${colors.blue};
-    font-size: 28px;
+    font-size: 33px;
   }
 `;
 export const NavbarPeque = styled.nav`
@@ -203,25 +283,26 @@ export const NavLinkPeque = styled(Link)`
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  color: ${(props) => (props.active ? "#12748e" : "inherit")};
+  color: ${(props) => (props.active ? "gold" : "inherit")};
 `;
 
 export const NavLink = styled.a`
   margin-right: 40px;
   text-decoration: none;
   cursor: pointer;
-  color: ${(props) => (props.active ? "#12748e" : "inherit")};
+  color: ${(props) => (props.active ? "gold" : "inherit")};
 `;
 export const StyledBrand = styled(Navbar.Brand)`
-  color: white;
-  font-family: "Kanit", sans-serif;
+  color: ${colors.yellowLight};
+  font-family: "Archivo Black", sans-serif;
   font-weight: bold;
   font-size: 34px;
   cursor: pointer;
   margin-left: 40px;
   &:hover {
-    color: ${colors.blue};
-  }
+    color: gold;
+  };
+  
 `;
 
 export const StyledButton = styled.button`
@@ -262,13 +343,50 @@ export const StyledButton2 = styled.button`
     padding: 15px 100px;
   }
 `;
+export const StyledButtonMini = styled.button`
+  background-color: ${colors.yellowLight};
+  color: black;
+  font-weight: bold;
+  padding: 5px 8px;
+  border-radius: 20px;
+  margin-right: 40px;
+  box-shadow: 0 10px 25px 1px rgba(255, 255, 0, 0.5);
+  text-align: center;
+  white-space: nowrap;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 22px;
+  margin: 0 auto;
+
+  &:hover {
+    padding: 8px 15px;
+  }
+`;
+
+export const StyledButtonCerrar = styled.button`
+  background-color: ${colors.red};
+  color: black;
+  font-weight: bold;
+  padding: 5px 5px;
+  border-radius: 20px;
+  margin-right: 40px;
+  box-shadow: -2px 9px 53px 0px rgba(255,79,79,1);
+  text-align: center;
+  white-space: nowrap;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 22px;
+  margin: 0 auto;
+
+  &:hover {
+    padding: 8px 15px;
+  }
+`;
 
 
 /**********INDEX**********/
 
 export const Title = styled.h1`
   font-size: 50px;
-  margin-left: 60px;
+  margin-left: 20px;
   color: ${colors.yellowLight};
   font-family: "Archivo Black", sans-serif;
 `;
@@ -345,6 +463,7 @@ export const ImageBox = styled.img`
 export const TextBox = styled.p`
   font-size: 16px; 
   color: #333; 
+  font-Family: "Dosis", sans-serif;
 `;
 
 export const ImageContainer = styled.div`
@@ -386,6 +505,7 @@ export const Boton = styled.button`
   font-family: "Kanit", sans-serif;
   font-size: 22px;
   margin-top: 30px;
+  margin-right: 60px;
 
   &:hover {
     padding: 15px 120px;
@@ -398,12 +518,13 @@ export const Texto = styled.p`
   font-family: "Dosis", sans-serif;
   font-optical-sizing: auto;
   font-weight: bold;
+  margin-right: 60px;
 `;
 export const HeaderContainer = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
-background-color: ${colors.gray};
+background-color: ${colors.black};
 
 color: black;
 padding: 0.5rem 1rem;
@@ -424,6 +545,8 @@ color: white;
 text-decoration: none;
 margin-right: 40px;
 text-align: center;
+font-Family: "Dosis", sans-serif;
+font-Size:30px;
 
 
 &:hover {
@@ -448,11 +571,11 @@ height: 400px;
   
 `;
 export const Rutine = styled.h2`
-color:  #12748e;
+color:  gold;
 text-align: center;
 `;
 export const LinkRutine = styled(Link)`
-color:  #12748e;
+color:  gold;
 text-decoration: none;
 &:hover {
   text-decoration: underline;
@@ -490,6 +613,8 @@ export const ModalContent = styled.div`
   max-width: 500px;
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-Family: "Dosis" , sans-serif;
+  font-Size: 20px;
 `;
 
 export const ModalHeader = styled.div`
@@ -522,4 +647,39 @@ export const ModalBody = styled.div`
 export const ModalFooter = styled.div`
   display: flex;
   justify-content: flex-end;
+`;
+
+export const StyledOffcanvasContainer = styled(Offcanvas)`
+
+font-Family: "Dosis", sans-serif;
+  font-Size:20px;
+  background-color: black;
+  color: white;
+  
+  .offcanvas-header {
+    background-color: ${colors.gray}; 
+    color: white; 
+  }
+
+  .offcanvas-title {
+    margin-left: 15px; 
+  }
+
+  .offcanvas-body {
+    padding: 20px; 
+    
+  }
+
+  .offcanvas-links a {
+    display: block; 
+    margin-bottom: 10px; 
+    margin-top: 20px;
+    color: gold; 
+    text-decoration: none; 
+    margin-bottom: -15px;
+  }
+
+  .offcanvas-links a:hover {
+    text-decoration: underline; 
+  }
 `;

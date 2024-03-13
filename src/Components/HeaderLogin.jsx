@@ -54,9 +54,7 @@ const HeaderLogin = () => {
               }}
             />
           </Navbar.Brand>
-          <Navbar.Brand style={{
-            marginRight: '-45px'
-          }}>
+          <Navbar.Brand >
           <StyledBrand>SDH SPORTS</StyledBrand>
           </Navbar.Brand>
           
@@ -65,8 +63,9 @@ const HeaderLogin = () => {
 
         <Container>
           <CustomNav style={{
-            marginRight: '30px',
-            marginLeft: '30px'
+           display:"flex",
+           justifyContent: 'center',
+           alignItems: 'center'
           }}>
             <NavLink
               active={activeLink === "home"}
@@ -84,7 +83,7 @@ const HeaderLogin = () => {
                 navigate("/imc");
               }}
             >
-              Calculator
+              Calculadora
             </NavLink>
             <NavLink
                 active={activeLink === "rutinas"}
@@ -106,13 +105,22 @@ const HeaderLogin = () => {
               Tienda
             </NavLink>
             <NavLink
+              active={activeLink === "Perfil1"}
+              onClick={() => {
+                handleLinkClick("Perfil1");
+                navigate("/addperfil");
+              }}
+            >
+              Agregar Perfil
+            </NavLink>
+            <NavLink
               active={activeLink === "Perfil"}
               onClick={() => {
                 handleLinkClick("Perfil");
-                navigate("/perfil");
+                navigate("/listperfil");
               }}
             >
-              Perfil
+              Editar Perfil
             </NavLink>
 
           </CustomNav>

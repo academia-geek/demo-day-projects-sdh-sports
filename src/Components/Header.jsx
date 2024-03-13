@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { CustomNav, NavLink, StyledBrand, StyledButton } from "../Styles/styled";
+import { CustomNav, NavLink, StyledBrand, StyledButton, CustomNav2 } from "../Styles/styled";
 
 
 
@@ -50,8 +50,12 @@ const Header = () => {
           <StyledBrand>SDH SPORTS</StyledBrand>
         </Link>
 
-        <Container>
-          <CustomNav>
+        <Container style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+          <CustomNav2>
             <NavLink
               active={activeLink === "home"}
               onClick={() => {
@@ -62,21 +66,15 @@ const Header = () => {
               Inicio
             </NavLink>
             <NavLink
-              active={activeLink === "About"}
-              onClick={() => handleLinkClick("About")}
-            >
-              Nosotros
-            </NavLink>
-            <NavLink
               active={activeLink === "Login"}
               onClick={() => {
                 handleLinkClick("Login");
                 navigate("/login");
               }}
             >
-              Login
+              Iniciar Sesion
             </NavLink>
-          </CustomNav>
+          </CustomNav2>
         </Container>
 
         <Link
@@ -85,7 +83,7 @@ const Header = () => {
             textDecoration: "none",
           }}
         >
-          <StyledButton>Free trial</StyledButton>
+          <StyledButton>Prueba Gratis</StyledButton>
         </Link>
       </Navbar>
     </>

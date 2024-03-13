@@ -4,7 +4,7 @@ import useForm from "../Hooks/useForm";
 import { Button, Form } from "react-bootstrap";
 import { actionAddperfilAsyn } from "../Redux/actions/actionsPerfil";
 import { FileUpload } from "../Helpers/FileUpload";
-import { Title } from "../Styles/styled";
+import { BackgroundContainer3,StyledButtonMini,LabelForm, FormContainer, Title } from "../Styles/styled";
 
 const Perfil = () => {
   const dispatch = useDispatch();
@@ -16,10 +16,13 @@ const Perfil = () => {
   });
   const [currentData, setCurrentData] = useState({});
   useEffect(() => {
-    const storedData = localStorage.getItem('userData');
+    const storedData = localStorage.getItem("userData");
     if (storedData) {
       const parsedData = JSON.parse(storedData);
-      setCurrentData({ ...parsedData, fotop: decodeURIComponent(parsedData.fotop) });
+      setCurrentData({
+        ...parsedData,
+        fotop: decodeURIComponent(parsedData.fotop),
+      });
     }
   }, []);
 
@@ -34,7 +37,10 @@ const Perfil = () => {
       fotop: formValue.fotop,
     };
     dispatch(actionAddperfilAsyn(obj));
-    localStorage.setItem('userData', JSON.stringify({ ...obj, fotop: encodeURIComponent(obj.fotop) }));
+    localStorage.setItem(
+      "userData",
+      JSON.stringify({ ...obj, fotop: encodeURIComponent(obj.fotop) })
+    );
     setCurrentData(obj);
     reset();
   };
@@ -48,77 +54,76 @@ const Perfil = () => {
 
   return (
     <div className="divAdd">
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formPlaintextname">
-          <Form.Label column sm="2">
-          Full name
-          </Form.Label>
+    <BackgroundContainer3>
+        <Title
+          style={{
+            margin: "0 auto",
+            textAlign: "center",
+            color:"white"
+          }}
+        >
+          Agrega un nuevo perfil!
+        </Title>
+        <FormContainer>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formPlaintextname">
+              <LabelForm>
+                Nombre Completo
+              </LabelForm>
 
-          <Form.Control
-            placeholder="user_name"
-            name="name"
-            value={formValue.name}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
+              <Form.Control
+                placeholder="user_name"
+                name="name"
+                value={formValue.name}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formPlaintextprice">
-          <Form.Label column sm="2">
-            Phone
-          </Form.Label>
+            <Form.Group className="mb-3" controlId="formPlaintextprice">
+              <LabelForm>
+                Numero
+              </LabelForm>
 
-          <Form.Control
-            type="number"
-            placeholder="Phone"
-            name="phone"
-            value={formValue.phone}
-            onChange={handleInputChange}
-          />
-        </Form.Group>
-        <label htmlFor="sexo">Gender:</label>
-          <Form.Select
-            name="genre"
-            value={formValue.genre}
-            onChange={handleInputChange}
+              <Form.Control
+                type="number"
+                placeholder="Phone"
+                name="phone"
+                value={formValue.phone}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+            <LabelForm htmlFor="sexo">Genero:</LabelForm>
+            <Form.Select
+              name="genre"
+              value={formValue.genre}
+              onChange={handleInputChange}
             >
-            <option value="">Seleccionar</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Femenino">Femenino</option>
-          </Form.Select>
-        <Form.Group className="mb-3" controlId="formPlaintextprice">
-          <Form.Label column sm="2">
-          Profile picture
-          </Form.Label>
+              <option value="">Seleccionar</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+            </Form.Select>
+            <Form.Group className="mb-3" controlId="formPlaintextprice">
+              <LabelForm >
+                Foto de perfil
+              </LabelForm>
 
-          <Form.Control
-            type="file"
-            name="fotop"
-            accept=".jpg, .png, .webp"
-            placeholder="Ingrese Foto de perfil"
-            onChange={handleFileChange}
-          />
-        </Form.Group>
-
-        <Button type="submit">Save</Button>
-      </Form>
-
-      <Title>Tus datos actuales son</Title>
-      <div>
-  {Object.keys(currentData).length > 0 && (
-    <div style={{color: "white"}}>
-      <h2>Tus datos actuales son:</h2>
-      <p>Nombre: {currentData.name}</p>
-      <p>Teléfono: {currentData.phone}</p>
-      <p>Género: {currentData.genre}</p>
-      <img src={currentData.fotop} alt="Foto de perfil" style={{
-          maxWidth: '200px', 
-          maxHeight: '200px', 
-          objectFit: 'contain', 
-        }} />
-    </div>
-  )}
-</div>
-      
+              <Form.Control
+                type="file"
+                name="fotop"
+                accept=".jpg, .png, .webp"
+                placeholder="Ingrese Foto de perfil"
+                onChange={handleFileChange}
+              />
+            </Form.Group>
+            <div style={{
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center"}}>
+            <StyledButtonMini type="submit">Agregar</StyledButtonMini>
+            </div>
+          </Form>
+        </FormContainer>
+      </BackgroundContainer3>
     </div>
   );
 };
