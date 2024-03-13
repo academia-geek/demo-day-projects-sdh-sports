@@ -649,6 +649,79 @@ export const ModalFooter = styled.div`
   justify-content: flex-end;
 `;
 
+export const DivHome = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Span = styled.span`
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 40px;
+  width: 400px;
+`;
+
+export const Button = styled.button`
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: white;
+    color: #007bff;
+  }
+`;
+
+export const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
+  text-align: center;
+`;
+
+export const StyledInnerDiv = styled.div`
+  width: 250px;
+  margin: 10px;
+  padding: 20px;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const StyledImage = styled.img`
+  width: 100px;
+  margin-bottom: 20px;
+`;
+
+
+export const StyledParagraph = styled.p`
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin: 20px 20% 50px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 40px;
+  border-radius: 30px;
+  font-family: 'Dosis', sans-serif;
+`;
+
 export const StyledOffcanvasContainer = styled(Offcanvas)`
 
 font-Family: "Dosis", sans-serif;

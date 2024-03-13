@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   CustomNav,
   HeaderContainer,
@@ -32,13 +32,13 @@ import EditEjercicio from "../Components/EditEjercicio";
 
 const Rutinas = () => {
   const dispatch = useDispatch();
-  const { ejercicios } = useSelector((store) => store.ejerciciosStore);
+  const { ejercicios } = useSelector((store:any) => store.ejerciciosStore);
   const [show, setShow] = useState(false);
   const [selectData, setSelectData] = useState();
 
   const handleClose = () => setShow(false);
 
-  const handleShow = (p) => {
+  const handleShow = (p:any) => {
     setSelectData(p);
     setShow(true);
   };
@@ -46,16 +46,6 @@ const Rutinas = () => {
   useEffect(() => {
     dispatch(actionListEjerciciosAsyn());
   }, []);
-
-  // const ejerciciosFlaco = ejercicios.filter(
-  //   (ejercicio) => ejercicio.type === "Flaco"
-  // );
-  // const ejerciciosEstable = ejercicios.filter(
-  //   (ejercicio) => ejercicio.type === "Estable"
-  // );
-  // const ejerciciosGordo = ejercicios.filter(
-  //   (ejercicio) => ejercicio.type === "Gordo"
-  // );
 
   return (
     <>
@@ -77,15 +67,15 @@ const Rutinas = () => {
               marginLeft: "-100px",
               
             }}
-            navigate
+            
             to="/flaco"
           >
             Bajo
           </NavLinkPeque>
-          <NavLinkPeque navigate to="/estable">
+          <NavLinkPeque  to="/estable">
             Estable
           </NavLinkPeque>
-          <NavLinkPeque navigate to="/gordo">
+          <NavLinkPeque  to="/gordo">
             Obeso
           </NavLinkPeque>
         </NavbarPeque>
@@ -117,7 +107,7 @@ const Rutinas = () => {
           {[...Array(Math.ceil(ejercicios.length / 4))].map((_, index) => (
             <Carousel.Item key={index}>
               <CardGroup>
-                {ejercicios.slice(index * 4, (index + 1) * 4).map((p) => (
+                {ejercicios.slice(index * 4, (index + 1) * 4).map((p:any) => (
                   <Card key={p.id} style={{
                     fontFamily: "Dosis, sans-serif",
                     fontSize: "20px"

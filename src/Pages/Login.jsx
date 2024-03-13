@@ -45,7 +45,7 @@ const Login = () => {
       <LoginButton type="submit">Login</LoginButton>
       <ImageButton onClick={() => dispatch(actionGoogle())}>
         <GoogleImage
-          src="https://res.cloudinary.com/madrigalsito/image/upload/v1709772751/SDH/free-google-1772223-1507807_msshbm.webp"
+          src="https://res.cloudinary.com/sdhsports/image/upload/v1709772751/SDH/free-google-1772223-1507807_msshbm.webp"
           alt="Google Login"
         />
       </ImageButton>

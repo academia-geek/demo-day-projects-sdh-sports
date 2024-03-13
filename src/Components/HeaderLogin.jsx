@@ -136,7 +136,7 @@ const HeaderLogin = () => {
                 variant="outline-success"
                 onClick={() => dispatch(actionLogoutAsyn())} 
               >
-                Logout
+                Cerrar Sesion
               </StyledButton>
         </Link>
       </Navbar>
