@@ -1,5 +1,5 @@
 import { Field, Form } from 'formik';
-import {  CardGroup, Carousel, Navbar, Offcanvas } from 'react-bootstrap';
+import {  Card, CardGroup, Carousel, Navbar, Offcanvas } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
@@ -13,6 +13,8 @@ const colors = {
   yellowLight: '#ffff5f',
   red:'#9f1239'
 };
+
+
 
 /*********REGISTER*************/
 
@@ -74,7 +76,37 @@ export const FormInput = styled(Field)`
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
-`;
+  `;
+  export const StyledFormControl = styled(Form)`
+  max-width: 200px;
+  `;
+  
+  export const ErrorMessage = styled.div`
+    color: red;
+    margin-bottom: 8px;
+  `;
+  
+  export const SubmitButton = styled.button`
+    width: 100%;
+    background-color: ${colors.green};
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  `;
+  
+  export const LoginLink = styled.div`
+    text-align: center;
+    margin-top: 16px;
+    font-weight: bold;
+    font-size: 25px;
+    color: ${colors.yellow};
+  `;
+
+/*****************Backgrounds******************/
 
 export const BackgroundContainer = styled.div`
   background-image: url('https://res.cloudinary.com/sdhsports/image/upload/v1710267288/1345029_2_krnjaj.png');
@@ -116,36 +148,6 @@ export const BackgroundContainer4 = styled.div`
   align-Content: center;
   align-items: center;
 `;
-
-export const StyledFormControl = styled(Form)`
-max-width: 200px;
-`;
-
-export const ErrorMessage = styled.div`
-  color: red;
-  margin-bottom: 8px;
-`;
-
-export const SubmitButton = styled.button`
-  width: 100%;
-  background-color: ${colors.green};
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-`;
-
-export const LoginLink = styled.div`
-  text-align: center;
-  margin-top: 16px;
-  font-weight: bold;
-  font-size: 25px;
-  color: ${colors.yellow};
-`;
-
 
 /*********LOGIN*************/
 
@@ -228,7 +230,7 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-/********HEADER************/
+/********HEADERS************/
 
 export const CustomNav = styled.nav`
   display: flex;
@@ -520,6 +522,9 @@ export const Texto = styled.p`
   font-weight: bold;
   margin-right: 60px;
 `;
+
+
+/* */
 export const HeaderContainer = styled.div`
 display: flex;
 justify-content: space-between;
@@ -653,7 +658,7 @@ export const DivHome = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
+ 
   justify-content: center;
   align-items: center;
 `;
@@ -667,6 +672,24 @@ export const Span = styled.span`
   border-radius: 10px;
   font-size: 40px;
   width: 400px;
+  font-family: "Dosis", sans-serif;
+
+`;
+export const Slogan = styled.h4`
+  color: white;
+  font-size: 21px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 40px;
+  width: 400px;
+  font-family: "Dosis", sans-serif;
+
+  &:hover {
+    color: gold;
+  }
+
 `;
 
 export const Button = styled.button`
@@ -721,7 +744,72 @@ export const StyledParagraph = styled.p`
   border-radius: 30px;
   font-family: 'Dosis', sans-serif;
 `;
+export const CartContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+`;
 
+export const CartWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+export const ProductCard = styled(Card)`
+  width: 300px;
+  margin: 10px;
+`;
+
+export const ProductTitle = styled(Card.Title)`
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-family: Dosis, sans-serif;
+  font-size: 20px;
+`;
+
+export const ProductText = styled(Card.Text)`
+  font-size: 12px;
+  margin-bottom: 5px;
+  font-family: Dosis, sans-serif;
+  font-size: 20px;
+`;
+
+export const RemoveButton = styled(Button)`
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: ${colors.yellowLight};
+  color: black;
+  font-weight: bold;
+  padding: 10px 100px;
+  border-radius: 20px;
+  text-align: center;
+  white-space: nowrap;
+  font-family: "Kanit", sans-serif;
+  font-size: 22px;
+  margin: 0 auto;
+
+  &:hover {
+    padding: 15px 120px;
+  }
+`;
+export const PayButton = styled(Button)`
+  width: 200px;
+  margin: 20px auto;
+`;
+
+export const CartTitle = styled.h2`
+  text-align: center;
+  color: gold;
+  margin-bottom: 10px;
+`;
+
+export const PayLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+`;
 export const StyledOffcanvasContainer = styled(Offcanvas)`
 
 font-Family: "Dosis", sans-serif;

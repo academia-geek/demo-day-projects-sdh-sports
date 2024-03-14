@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, CardGroup, Offcanvas } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Button, Card, Offcanvas } from "react-bootstrap";
 import {
-  actionDeleteProductAsyn,
-  actionListproductAsyn,
-} from "../Redux/actions/actionsProducts";
-import {
+  CartContainer,
+  CartTitle,
+  CartWrapper,
   HeaderContainer,
-  LinkRutine,
   MiniNavLink,
   Navigation,
-  Titulo,
-  StyledButtonMini,
+  PayButton,
+  PayLink,
+  ProductCard,
+  ProductText,
+  ProductTitle,
+  RemoveButton,
   StyledOffcanvasContainer,
+  Titulo,
 } from "../Styles/styled";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
-const Shop = () => {
-  const dispatch = useDispatch();
-  const { products } = useSelector((store) => store.productsStore);
+const Cart = () => {
+  const [cart, setCart] = useState([]);
   const [show, setShow] = useState(false);
   const [selectedType, setSelectedType] = useState(null);
   const navigate = useNavigate();
@@ -27,28 +29,26 @@ const Shop = () => {
   const handleTypeClick = (type) => setSelectedType(type);
 
   useEffect(() => {
-    dispatch(actionListproductAsyn());
-  }, [dispatch]);
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(savedCart);
+  }, []);
 
-  const redirigir = (itemid) => {
-    navigate(`/informacion/${itemid}`);
+  const removeFromCart = (index) => {
+    const updatedCart = [...cart];
+    updatedCart.splice(index, 1);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   return (
-    <div className="divTable">
+    <>
       <HeaderContainer>
         <Navigation></Navigation>
         <Titulo>
           <MiniNavLink style={{ marginLeft: "0px" }} to="/addPro">
             Añadir
           </MiniNavLink>
-          <MiniNavLink
-            style={{
-              textDecoration: "none",
-            }}
-          >
-            ¡Bienvenido!
-          </MiniNavLink>
+          <MiniNavLink to="/shop">Tienda</MiniNavLink>
           <MiniNavLink onClick={handleShow}>Ver mas</MiniNavLink>
         </Titulo>
         <Navigation>
@@ -64,51 +64,44 @@ const Shop = () => {
         </Navigation>
       </HeaderContainer>
 
-      <div>
-        <CardGroup
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "50px",
-            margin: "50px",
-          }}
-        >
-          {products
-            .filter((p) => !selectedType || p.type === selectedType)
-            .map((p) => (
-              <Card
-                key={p.id}
-                style={{
-                  backgroundColor: "gray",
-                  fontFamily: "Dosis, sans-serif",
-                  fontSize: "20px",
-                }}
-              >
+      <CartTitle>Carrito de Compras</CartTitle>
+      <CartContainer>
+        <CartWrapper>
+          {cart.length > 0 ? (
+            cart.map((product, index) => (
+              <ProductCard key={index}>
                 <Card.Img
-                  variant=""
-                  src={p.foto}
-                  style={{ width: "400px", height: "270px" }}
+                  variant="top"
+                  src={product.foto}
+                  alt={product.name}
+                  style={{ width: "100%", height: "300px", objectFit: "cover" }}
                 />
-                <Card.Body style={{ textAlign: "center" }}>
-                  <Card.Title style={{ textAlign: "center", margin: "0 auto" }}>
-                    {p.name}
-                  </Card.Title>
-                  <StyledButtonMini onClick={() => redirigir(p.id)}>
-                    Detalles
-                  </StyledButtonMini>
+                <Card.Body style={{ padding: "10px" }}>
+                  <ProductTitle>{product.name}</ProductTitle>
+                  <ProductText>${product.price}</ProductText>
+                  <RemoveButton
+                    variant="danger"
+                    onClick={() => removeFromCart(index)}
+                  >
+                    X
+                  </RemoveButton>
                 </Card.Body>
+              </ProductCard>
+            ))
+          ) : (
+            <p>No hay productos en el carrito.</p>
+          )}
+        </CartWrapper>
+      </CartContainer>
+      <div style={{
+        display:'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
 
-                {/* <Button
-                      onClick={() => dispatch(actionDeleteProductAsyn(p.id))}
-                    >
-                      X
-                    </Button>
-                    <Button variant="primary" onClick={() => handleShow(p)}>
-                      Edit
-                    </Button>  */}
-              </Card>
-            ))}
-        </CardGroup>
+          <PayLink to="/pasarela">
+            <PayButton variant="success">Pagar</PayButton>
+          </PayLink>
       </div>
 
       <StyledOffcanvasContainer
@@ -151,8 +144,8 @@ const Shop = () => {
           </div>
         </Offcanvas.Body>
       </StyledOffcanvasContainer>
-    </div>
+    </>
   );
 };
 
-export default Shop;
+export default Cart;
