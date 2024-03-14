@@ -9,7 +9,7 @@ import {
 import { FileUpload } from "../Helpers/FileUpload";
 import useForm from "../Hooks/useForm";
 import PerfilEdit from "../Components/PerfilEdit";
-import { ModalBody, ModalContent, ModalFooter, ModalHeader, ModalTitle, ModalWrapper, StyledButtonMini } from "../Styles/styled";
+import { ModalBody, ModalContent, ModalFooter, ModalHeader, ModalTitle, ModalWrapper, StyledButtonMini, Title } from "../Styles/styled";
 
 
 const PerfilList = () => {
@@ -32,49 +32,34 @@ const PerfilList = () => {
 
 
   return (
-    <div className="divTable">
-      <Table striped bordered hover variant="dark" style={{margin:"0 auto", "text-align": "center",alignContent:"center", "width": "1200px", fontFamily: "Dosis, sans-serif",
-          fontSize:"20px"}}>
-        <thead>
-          <tr>
-            <th>user id</th>
-            <th>Nombre</th>
-            <th>Genero</th>
-            <th>Numero</th>
-            <th>Foto de perfil</th>
-            <th>Acciónes</th>
-          </tr>
-        </thead>
-        <tbody>
+    <div className="divTable" style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
           {perfil?.map((p) => (
-            <tr key={p.id}>
-              <td>{p.id}</td>
-              <td>{p.name}</td>
-              <td>{p.genre}</td>
-              <td>{p.phone}</td>
-              <td>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                <img src={p.fotop} alt="" width={"30%"} alignContent=  "center" />
+            <div key={p.id}>
+              <Title> Id de usuario</Title>
+              <h2>{p.id}</h2>
+              <Title> Tu nombre </Title>
+              <h2>{p.name}</h2>
+              <Title> Tu genero</Title>
+              <h3>{p.genre}</h3>
+              <Title> Tu numero</Title>
+              <h4>{p.phone}</h4>
+              <Title> Foto de perfil </Title>
+              <img src={p.fotop} alt="" width={"30%"} alignContent=  "center" />
 
-                </div>
-              </td>
-              <td style={{ padding: 10 }}>
+
                 <StyledButtonMini style={{marginInlineEnd:"10px"}} onClick={() => dispatch(actionDeletePerfilAsyn(p.id))}>
                   X
                 </StyledButtonMini >
                 <StyledButtonMini style={{marginInlineEnd:"10px"}} variant="primary" onClick={() => handleShow(p)}>
                   Edit
                 </StyledButtonMini>
-                <StyledButtonMini style={{marginInlineEnd:"10px"}}>Ver</StyledButtonMini>
-              </td>
-            </tr>
+
+            </div>
           ))}
-        </tbody>
-      </Table>
       {show && (
   <ModalWrapper>
     <ModalContent>
