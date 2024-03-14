@@ -15,6 +15,9 @@ import Shop from "../Pages/Shop";
 import AddProduct from "../Components/AddProduct";
 import Informacion from "../Components/Informacion";
 import PerfilList from "../Components/PerfilList";
+import Cart from "../Components/Cart";
+import Pasarela from "../Components/PasarelaPago";
+import ConfirmacionPago from "../Components/Confirmacion";
 // import PerfilEdit from "../Components/PerfilEdit";
 // import PerfilList from "../Pages/PerfilList";
 
@@ -24,7 +27,9 @@ const DashboardRouter = () => {
     <>
     <HeaderLogin />
       <Routes>
-        <Route path="/*" element={<Home />} />
+        <Route path="/*" element={<Perfil />} />
+        <Route path="/home" element={<Home />} />
+        <Route path = "/perfil" element= {<Perfil/>} />
         <Route path = "/imc" element = {<Imc/>}/>
         <Route path = "/gordo" element = {<Gordo/>}/>
         <Route path = "/estable" element = {<Estable/>}/>
@@ -37,8 +42,11 @@ const DashboardRouter = () => {
         <Route path = "/addperfil" element = {<Perfil/>}/>
         <Route path = "/shop" element = {<Shop/>}/>
         <Route path = "/addPro" element = {<AddProduct/>}/>
-        <Route path="/informacion/:itemid" element={<Informacion />}/>
-        
+        <Route path = "/informacion/:itemid" element={<Informacion />} />
+        <Route path = "/carrito" element={<Cart />} />
+        <Route path = "/pasarela" element={<Pasarela />} />
+        <Route path = "/confirmacion" element={<ConfirmacionPago />} />
+  
       </Routes>
       </>
   );

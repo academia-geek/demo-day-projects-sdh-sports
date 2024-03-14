@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Index from "../Pages/Index";
+import Perfil from "../Pages/Perfil";
 import Header from "../Components/Header";
 import Login from "../Pages/Login";
 import RegisterFormik from "../Pages/Register";
@@ -10,6 +11,7 @@ import DashboardRouter from "./DashboardRouter";
 import PrivateRouter from "./PrivateRouter";
 import Imc from "../Pages/Imc";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Imcpublic from "../Components/Imcpublic";
 
 const App = () => {
 
@@ -35,6 +37,16 @@ const App = () => {
             <PublicRouter isAutentication={user}>
               <Header />
               <Index />
+            </PublicRouter>
+          }
+        />
+
+        <Route
+          path="/Imcpublic"
+          element={
+            <PublicRouter isAutentication={user}>
+              <Header />
+              <Imcpublic />
             </PublicRouter>
           }
         />

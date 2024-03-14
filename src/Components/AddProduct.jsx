@@ -54,13 +54,23 @@ const AddProduct = () => {
       <HeaderContainer>
         <Navigation></Navigation>
         <Titulo>
-          <MiniNavLink style={{ marginLeft: "-40px" }} to="/addPro">
+          <MiniNavLink style={{ marginLeft: "0px" }} to="/addPro">
             Añadir
           </MiniNavLink>
-          <MiniNavLink to='/shop'>Tienda</MiniNavLink>
-         <MiniNavLink onClick={handleShow}>Ver mas</MiniNavLink>
+          <MiniNavLink to="/shop">Tienda</MiniNavLink>
+          <MiniNavLink onClick={handleShow}>Ver mas</MiniNavLink>
         </Titulo>
-        <Navigation></Navigation>
+        <Navigation>
+        <Link to="/carrito">
+        <img
+          style={{
+            width: "60px",
+          }}
+          src="https://res.cloudinary.com/sdhsports/image/upload/v1710381722/SDH/3361585_md93wn.png"
+          alt=""
+        />
+      </Link>
+        </Navigation>
       </HeaderContainer>
       <FormContainer>
 

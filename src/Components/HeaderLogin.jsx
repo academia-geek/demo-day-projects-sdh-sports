@@ -23,7 +23,7 @@ const HeaderLogin = () => {
     const path = location.pathname;
     if (path === "/flaco" || path === "/gordo" || path === "/estable") {
       setActiveLink("rutinas");
-    } else if (path === "/") {
+    } else if (path === "/home") {
       setActiveLink("home");
     } else if (path === "/imc") {
       setActiveLink("imc");
@@ -71,7 +71,7 @@ const HeaderLogin = () => {
               active={activeLink === "home"}
               onClick={() => {
                 handleLinkClick("home");
-                navigate("/");
+                navigate("/home");
               }}
             >
               Inicio

@@ -51,7 +51,7 @@ const Login = () => {
       </ImageButton>
 
       <RegisterLink>
-        <StyledLink to="/register">You do not have an account? Sign up!</StyledLink>
+        <StyledLink to="/register">No tienes cuenta? Registrate!</StyledLink>
       </RegisterLink>
     </LoginForm>
   </LoginBox>

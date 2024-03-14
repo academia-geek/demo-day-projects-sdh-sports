@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Title, Text, ProgressBarContainer, ProgressBarValue, ProgressText, GrayBox, ImageBox, TextBox, ImageContainer, Image, Overlay, Boton, Texto } from '../Styles/styled'
+import { Title, Text, ProgressBarContainer, ProgressBarValue, ProgressText, GrayBox, ImageBox, TextBox, ImageContainer, Image, Overlay, Boton, Texto, ResponsiveContainer } from '../Styles/styled'
 const FitnessAppIntroduction = () => {
   return (
+    
+
+    
     <div
       style={{
         display: "grid",
         gridTemplateColumns: "60% 40%",
+        gap: '40px'
       }}
     >
       <div>
@@ -150,6 +154,7 @@ const FitnessAppIntroduction = () => {
         </Overlay>
       </ImageContainer>
     </div>
+    
   );
 };
 

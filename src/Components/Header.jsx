@@ -78,12 +78,12 @@ const Header = () => {
         </Container>
 
         <Link
-          to="/register"
+          to="/Imcpublic"
           style={{
             textDecoration: "none",
           }}
         >
-          <StyledButton>Prueba Gratis</StyledButton>
+          <StyledButton>Calcula tu IMC</StyledButton>
         </Link>
       </Navbar>
     </>

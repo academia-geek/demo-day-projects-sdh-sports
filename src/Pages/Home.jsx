@@ -2,7 +2,7 @@ import { getAuth } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { DivHome, Span, StyledDiv, StyledImage, StyledInnerDiv, StyledParagraph } from "../Styles/styled";
+import { DivHome, Slogan, Span, StyledDiv, StyledImage, StyledInnerDiv, StyledParagraph } from "../Styles/styled";
 
 
 
@@ -24,6 +24,9 @@ const Home = () => {
           Hola,{" "}
         {!user ? "Guest" : !user.displayName ? user.email : user.displayName}!
           </Span>
+        </DivHome>
+        <DivHome>
+    <Slogan>Con SDH Sports, Tu camino hacia un cuerpo sano!</Slogan>
         </DivHome>
 
         <StyledParagraph

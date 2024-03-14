@@ -41,7 +41,7 @@ const Gordo = () => {
       <div>
         <h2
           style={{
-            color: "#12748e",
+            color: "gold",
             textAlign: "center",
             margin: "20px 0",
           }}
