@@ -14,6 +14,12 @@ const colors = {
   red:'#9f1239'
 };
 
+export const CardImages = {
+  visa: 'https://res.cloudinary.com/sdhsports/image/upload/v1710387212/SDH/Visa_qskup4.webp',
+  mastercard: 'https://res.cloudinary.com/sdhsports/image/upload/v1710387223/SDH/mastercard_dn9jvn.jpg',
+  american: 'https://res.cloudinary.com/sdhsports/image/upload/v1710387222/SDH/american_fcwmoo.avif',
+};
+
 
 
 /*********REGISTER*************/
@@ -76,6 +82,7 @@ export const FormInput = styled(Field)`
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
+  color: white;
   `;
   export const StyledFormControl = styled(Form)`
   max-width: 200px;
@@ -185,6 +192,7 @@ export const LoginInput = styled.input`
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
+  color: white;
 `;
 
 export const LoginButton = styled.button`
@@ -342,7 +350,7 @@ export const StyledButton2 = styled.button`
   margin: 0 auto;
 
   &:hover {
-    padding: 15px 100px;
+    padding: 15px 30px;
   }
 `;
 export const StyledButtonMini = styled.button`
@@ -842,5 +850,112 @@ font-Family: "Dosis", sans-serif;
 
   .offcanvas-links a:hover {
     text-decoration: underline; 
+  }
+`;
+export const CardTypeSelect = styled.select`
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px 12px;
+  `;
+
+export const PaymentFormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+`;
+
+export const PaymentForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+`;
+
+export const InputField = styled.input`
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: white;
+`;
+
+export const ExpiryCvvContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+`;
+
+export const ExpiryContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 48%;
+`;
+
+export const CvvField = styled(InputField)`
+  width: 22%;
+`;
+
+export const PaysButton = styled.button`
+  padding: 10px 50px;
+  background-color: ${(props) => (props.disabled ? 'grey' : '#27ae60')};
+  color: ${(props) => (props.disabled ? 'white' : '#fff')};
+  border: none;
+  border-radius: 4px;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  font-size: 1rem;
+`;
+
+export const CardImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+`;
+
+export const CardImage = styled.img`
+  width: 90px;
+  height: 65px;
+  margin-right: 1rem;
+`;
+
+export const PaymentConfirmationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`;
+
+export const ConfirmationImage = styled.img`
+  width: 500px; 
+  height: auto;
+  margin-bottom: 2rem;
+`;
+
+export const BackToHomeButton = styled.button`
+  padding: 7px 40px;
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  width: 500px;
+
+  &:hover {
+    background-color: #2ecc71;
   }
 `;

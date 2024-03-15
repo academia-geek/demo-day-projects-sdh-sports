@@ -104,7 +104,7 @@ const HeaderLogin = () => {
             >
               Tienda
             </NavLink>
-            <NavLink
+            {/* <NavLink
               active={activeLink === "Perfil1"}
               onClick={() => {
                 handleLinkClick("Perfil1");
@@ -112,7 +112,7 @@ const HeaderLogin = () => {
               }}
             >
               Agregar Perfil
-            </NavLink>
+            </NavLink> */}
             <NavLink
               active={activeLink === "Perfil"}
               onClick={() => {

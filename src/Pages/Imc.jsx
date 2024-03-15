@@ -75,11 +75,11 @@ const Imc = () => {
   const handleAccept = () => {
     handleClose(); // Cierra el modal
   
-    if (imc >= 29.9) {
+    if (imc >= 25) {
       redirigirGordo();
-    } else if (imc >= 25.9 && imc < 29.9) {
+    } else if (imc >= 18.5 && imc < 25 ) {
       redirigirEstable();
-    } else if (imc >= 10 && imc < 25.9) {
+    } else if (imc < 18.5) {
       redirigirFlaco();
     }
   };
@@ -171,13 +171,13 @@ const Imc = () => {
         <CloseButton onClick={handleClose} style={{color:"white"}}>x</CloseButton>
       </ModalHeader>
       <ModalBody>
-        <p> {imc}</p>
-        {imc >= 29.9 && <p>Tu rutina recomendada es para bajar de peso.</p>}
-        {imc >= 25.9 && imc < 29.9 && (
-          <p>Tu rutina recomendada es para mantener un peso saludable.</p>
+      <p> {imc}</p>
+        {imc >= 25 && <p>Tu rutina recomendada es para bajar de peso. <br />RUTINA: SOBRE PESO</p>}
+        {imc >= 18.5 && imc < 25 && (
+          <p>Tu rutina recomendada es para mantener un peso saludable. <br />RUTINA: ESTABLE</p>
         )}
-        {imc >= 10 && imc < 25.9 && (
-          <p>Tu rutina recomendada es para subir de peso.</p>
+        {imc < 18.5 && (
+          <p>Tu rutina recomendada es para subir de peso. <br />RUTINA: BAJO PESO</p>
 
         )}
             <p>Presiona aceptar para dirigirte a tu rutina..</p>

@@ -46,7 +46,7 @@ const Gordo = () => {
             margin: "20px 0",
           }}
         >
-          Obeso
+          Sobre Peso
         </h2>
         
         <CardsGroup>
