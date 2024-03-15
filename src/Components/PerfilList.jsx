@@ -57,7 +57,8 @@ const PerfilList = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              flexDirection: 'column'
+              flexDirection: 'column',
+              color:'white'
             }}>
 
             <Title> Foto de perfil </Title>
