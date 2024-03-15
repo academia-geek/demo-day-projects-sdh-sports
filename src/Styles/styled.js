@@ -276,7 +276,7 @@ align-items: center;
   }
 `;
 export const NavbarPeque = styled.nav`
-padding: 15px 220px 15px 220px;
+padding: 15px 319px 15px 319px;
 margin: 40px 400px;
 border-radius: 40px;
 background-color: ${colors.gray};
