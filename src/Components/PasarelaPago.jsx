@@ -1,89 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { CardImage, CardImageContainer, CardImages, CardTypeSelect, CvvField, ExpiryContainer, ExpiryCvvContainer, InputField, PaymentForm, PaymentFormContainer, PaysButton } from '../Styles/styled';
 
-const CardImages = {
-  visa: 'https://res.cloudinary.com/sdhsports/image/upload/v1710387212/SDH/Visa_qskup4.webp',
-  mastercard: 'https://res.cloudinary.com/sdhsports/image/upload/v1710387223/SDH/mastercard_dn9jvn.jpg',
-  american: 'https://res.cloudinary.com/sdhsports/image/upload/v1710387222/SDH/american_fcwmoo.avif',
-};
 
-const CardTypeSelect = styled.select`
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-repeat: no-repeat, repeat;
-  background-position: right 0.75rem center;
-  background-size: 12px 12px;
-  `
-const PaymentFormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-`;
-
-const PaymentForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 400px;
-`;
-
-const InputField = styled.input`
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-
-const ExpiryCvvContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 400px;
-`;
-
-const ExpiryContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 48%;
-`;
-
-const CvvField = styled(InputField)`
-  width: 22%;
-`;
-
-const PayButton = styled.button`
-  padding: 10px 50px;
-  background-color: ${(props) => (props.disabled ? 'grey' : '#27ae60')};
-  color: ${(props) => (props.disabled ? 'white' : '#fff')};
-  border: none;
-  border-radius: 4px;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
-  font-size: 1rem;
-`;
-
-const CardImageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-`;
-
-const CardImage = styled.img`
-  width: 80px;
-  height: 55px;
-  margin-right: 1rem;
-`;
 
 const Pasarela = () => {
   const [cardNumber, setCardNumber] = useState('');
@@ -197,9 +117,9 @@ const Pasarela = () => {
           />
         </ExpiryCvvContainer>
         <Link to= '/confirmacion'>
-        <PayButton type='submit' disabled={!formIsValid}>
+        <PaysButton type='submit' disabled={!formIsValid}>
           Pagar
-        </PayButton>
+        </PaysButton>
         </Link>
       </PaymentForm>
     </PaymentFormContainer>

@@ -137,12 +137,12 @@ const Imcpublic = () => {
       </ModalHeader>
       <ModalBody>
         <p> {imc}</p>
-        {imc >= 25 && <p>Tu rutina recomendada es para bajar de peso.</p>}
+        {imc >= 25 && <p>Tu rutina recomendada es para bajar de peso. <br />RUTINA: SOBRE PESO</p>}
         {imc >= 18.5 && imc < 25 && (
-          <p>Tu rutina recomendada es para mantener un peso saludable.</p>
+          <p>Tu rutina recomendada es para mantener un peso saludable. <br />RUTINA: ESTABLE</p>
         )}
         {imc < 18.5 && (
-          <p>Tu rutina recomendada es para subir de peso.</p>
+          <p>Tu rutina recomendada es para subir de peso. <br />RUTINA: BAJO PESO</p>
 
         )}
             <p>Presiona aceptar para dirigirte a tu rutina..</p>

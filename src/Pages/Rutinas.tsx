@@ -64,7 +64,7 @@ const Rutinas = () => {
         <NavbarPeque>
           <NavLinkPeque
             style={{
-              marginLeft: "-100px",
+              marginLeft: "-120px",
               
             }}
             
@@ -76,7 +76,7 @@ const Rutinas = () => {
             Estable
           </NavLinkPeque>
           <NavLinkPeque  to="/gordo">
-            Obeso
+          Sobre
           </NavLinkPeque>
         </NavbarPeque>
       </Container>
