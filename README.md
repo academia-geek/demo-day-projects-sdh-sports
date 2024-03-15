@@ -81,7 +81,7 @@ npm run start
 <a href= 'https://youtu.be/UnzwslsPH3s'>Ver Video</a>
 
 ## Autores 🖊️
-<a href= 'https://github.com/dmv666'>David Madrigl Vergara</a>
+<a href= 'https://github.com/dmv666'>David Madrigl Vergara</a>  <br> <br>
 <a href= 'https://github.com/DanielMolina6584'>Daniel Molina Torres</a>
 
 
