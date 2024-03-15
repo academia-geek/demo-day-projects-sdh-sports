@@ -1,4 +1,3 @@
-
 # SDH Sports 🏋🏽‍♀️💪🏽
 
 _Bienvenido a nuestro readme!_, aqui podras encontrar toda la informacion respecto a nuestra aplicacion de **_SDH Sports_**, para iniciar veamos algunos aspectos importantes de esta **_nueva e ingeniosa_** aplicacion, que te ofrece multiples cosas de manera sencilla y **eficaz**.
@@ -74,5 +73,16 @@ Ejecuta el servidor desde tu pc, con el comando
 ```
 npm run start
 ```
+
+## Link SDH Sports 🏅
+<a href= 'https://sdh-sports.web.app'>SDH Sports</a>
+
+## Video 📸
+<a href= 'https://youtu.be/UnzwslsPH3s'>Ver Video</a>
+
+## Autores 🖊️
+<a href= 'https://github.com/dmv666'>David Madrigl Vergara</a>
+<a href= 'https://github.com/DanielMolina6584'>Daniel Molina Torres</a>
+
 
 
