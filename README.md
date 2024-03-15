@@ -21,7 +21,7 @@ _Esta aplicacion comienza con_ el analisis realizado sobre el entorno actual, en
     >- Edad 🕰️
     >- Peso ⚖️
     >- Altura 👤
-    >- Medidas de cuello, cadera y cintura.. 🏃🏽
+   
 
 >- Luego de conocer tu informacion personal se realiza una evaluacion, y se guardan tus datos en nuestra base de datos!, por medio de estos datos se te asigna: 📉
     >- Una rutina recomendada especificamente para ti! ⌚
